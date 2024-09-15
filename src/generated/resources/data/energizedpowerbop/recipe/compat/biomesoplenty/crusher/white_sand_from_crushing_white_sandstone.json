@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:crusher",
+  "ingredient": {
+    "item": "biomesoplenty:white_sandstone"
+  },
+  "output": {
+    "item": "biomesoplenty:white_sand"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:plant_growth_chamber",
+  "ingredient": {
+    "item": "biomesoplenty:pink_hibiscus"
+  },
+  "outputs": [
+    {
+      "output": {
+        "item": "biomesoplenty:pink_hibiscus"
+      },
+      "percentages": [
+        1.0,
+        1.0,
+        0.33
+      ]
+    }
+  ],
+  "ticks": 16000
+}

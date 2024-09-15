@@ -1,0 +1,20 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:pine_sign"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:pine_planks"
+  },
+  "sawdustAmount": 1,
+  "secondaryOutput": {
+    "item": "energizedpower:sawdust"
+  }
+}

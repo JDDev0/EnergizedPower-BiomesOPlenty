@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:palm_trapdoor"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:palm_planks"
+  },
+  "sawdustAmount": 3,
+  "secondaryOutput": {
+    "count": 3,
+    "item": "energizedpower:sawdust"
+  }
+}
