@@ -9,12 +9,12 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import org.slf4j.Logger;
 
-@Mod(EnergizedPowerModBOP.MODID)
-public class EnergizedPowerModBOP {
+@Mod(EnergizedPowerBOPMod.MODID)
+public class EnergizedPowerBOPMod {
     public static final String MODID = "energizedpowerbop";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public EnergizedPowerModBOP(IEventBus modEventBus) {
+    public EnergizedPowerBOPMod(IEventBus modEventBus) {
 
     }
 

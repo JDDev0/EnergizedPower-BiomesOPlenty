@@ -1,6 +1,6 @@
 package me.jddev0.epbop.datagen;
 
-import me.jddev0.epbop.EnergizedPowerModBOP;
+import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = EnergizedPowerModBOP.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = EnergizedPowerBOPMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class EnergizedPowerBOPDataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
