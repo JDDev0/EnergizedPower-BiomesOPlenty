@@ -1,7 +1,6 @@
 # EnergizedPower-BiomesOPlenty
 Compatability between Energized Power and Biomes O' Plenty
 
-
 ## Information
 
 **This mod requires [Energized Power](https://github.com/JDDev0/EnergizedPower) and [Biomes O' Plenty](https://github.com/Glitchfiend/BiomesOPlenty)**
