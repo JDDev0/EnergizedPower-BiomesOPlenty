@@ -1,0 +1,46 @@
+{
+	"schemaVersion": 1,
+	"id": "energizedpowerbop",
+	"version": "${version}",
+	"name": "Energized Power - Biomes O' Plenty",
+	"description": "Compatibility between Energized Power and Biomes O' Plenty",
+	"authors": [
+		"JDDev0"
+	],
+	"contact": {
+		"homepage": "https://github.com/JDDev0/EnergizedPower-BiomesOPlenty",
+		"sources": "https://github.com/JDDev0/EnergizedPower-BiomesOPlenty",
+		"issues": "https://github.com/JDDev0/EnergizedPower-BiomesOPlenty/issues",
+		"email": "jddev0@dorneger.at"
+	},
+	"license": "MIT",
+	"icon": "assets/energizedpowerbop/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-datagen": [
+			"me.jddev0.epbop.datagen.EnergizedPowerBOPDataGenerators"
+		],
+		"main": [
+			"me.jddev0.epbop.EnergizedPowerBOPMod"
+		],
+		"client": [
+			"me.jddev0.epbop.EnergizedPowerBOPModClient"
+		]
+	},
+	"accessWidener" : "energizedpowerbop.accesswidener",
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+
+		"energizedpower": "*",
+
+		"biomesoplenty": "*"
+	},
+	"suggests": {
+		"emi": "*",
+		"jei": "*",
+		"rei": "*"
+	}
+}
