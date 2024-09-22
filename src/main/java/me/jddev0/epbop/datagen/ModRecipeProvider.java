@@ -3,10 +3,7 @@ package me.jddev0.epbop.datagen;
 import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
-import me.jddev0.ep.recipe.CrusherRecipe;
-import me.jddev0.ep.recipe.CrystalGrowthChamberRecipe;
-import me.jddev0.ep.recipe.PlantGrowthChamberRecipe;
-import me.jddev0.ep.recipe.SawmillRecipe;
+import me.jddev0.ep.recipe.*;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -170,14 +167,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         addBasicMushroomsGrowingRecipe(output, BOPItems.TOADSTOOL, "toadstool");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.WILDFLOWER), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.WILDFLOWER), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "wildflower", "wildflower");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.WHITE_PETALS), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.WHITE_PETALS), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "white_petals", "white_petals");
@@ -185,7 +182,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void buildCrystalGrowthChamberRecipes(RecipeExporter output) {
         addCrystalGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.ROSE_QUARTZ_CHUNK),
-                new CrystalGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
@@ -251,22 +248,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void addBasicFlowerGrowingRecipe(RecipeExporter RecipeExporter, ItemConvertible flowerItem,
                                              String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(flowerItem), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
+        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(flowerItem), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
                         1., 1., .33
                 })
         }, 16000, outputName, getItemPath(flowerItem));
     }
     private void addBasicMushroomsGrowingRecipe(RecipeExporter RecipeExporter, ItemConvertible mushroomItem,
                                                 String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(mushroomItem), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
+        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(mushroomItem), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
                         1., 1., .5, .25
                 })
         }, 16000, outputName, getItemPath(mushroomItem));
     }
     private void addPlantGrowthChamberRecipe(RecipeExporter RecipeExporter, Ingredient input,
-                                             PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] outputs, int ticks,
+                                             OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
@@ -275,11 +272,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         RecipeExporter.accept(recipeId, recipe, null);
     }
 
-    private void addCrystalGrowthChamberRecipe(RecipeExporter RecipeExporter, Ingredient input, CrystalGrowthChamberRecipe.OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(RecipeExporter RecipeExporter, Ingredient input, OutputItemStackWithPercentages output,
                                                int ticks) {
         addCrystalGrowthChamberRecipe(RecipeExporter, input, output, 1, ticks);
     }
-    private void addCrystalGrowthChamberRecipe(RecipeExporter recipeExporter, Ingredient input, CrystalGrowthChamberRecipe.OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(RecipeExporter recipeExporter, Ingredient input, OutputItemStackWithPercentages output,
                                                int inputCount, int ticks) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemPath(output.output().getItem()));

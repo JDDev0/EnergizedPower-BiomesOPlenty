@@ -7,9 +7,5 @@
     "count": 2,
     "item": "biomesoplenty:mahogany_planks"
   },
-  "sawdustAmount": 3,
-  "secondaryOutput": {
-    "count": 3,
-    "item": "energizedpower:sawdust"
-  }
+  "sawdustAmount": 3
 }

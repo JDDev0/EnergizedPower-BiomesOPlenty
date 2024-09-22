@@ -52,6 +52,8 @@ loom {
 fabricApi {
     configureDataGeneration {
         getOutputDirectory().set(getProject().file("src/generated/resources"))
+
+        setModId(project.modid)
     }
 
     loom.runConfigs.datagen.runDir("run")
@@ -77,9 +79,9 @@ dependencies {
     }
 
     // Energized Power dependency
-    modCompileOnly "curse.maven:energized-power-782147:5650292"
+    modCompileOnly "curse.maven:energized-power-782147:5746737"
 
-    modLocalRuntime "curse.maven:energized-power-782147:5650292"
+    modLocalRuntime "curse.maven:energized-power-782147:5746737"
 
     // Biomes O' Plenty integration
     modCompileOnly "curse.maven:biomes-o-plenty-220318:5726210"
