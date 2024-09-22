@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:dead_fence_gate"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:dead_planks"
+  },
+  "sawdustAmount": 3
+}

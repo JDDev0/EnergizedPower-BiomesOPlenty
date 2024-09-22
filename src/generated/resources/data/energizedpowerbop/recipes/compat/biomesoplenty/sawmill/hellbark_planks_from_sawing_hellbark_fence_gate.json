@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:hellbark_fence_gate"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:hellbark_planks"
+  },
+  "sawdustAmount": 3
+}

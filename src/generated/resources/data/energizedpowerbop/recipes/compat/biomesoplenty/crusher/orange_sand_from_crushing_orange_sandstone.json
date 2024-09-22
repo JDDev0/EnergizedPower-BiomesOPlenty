@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:crusher",
+  "ingredient": {
+    "item": "biomesoplenty:orange_sandstone"
+  },
+  "output": {
+    "item": "biomesoplenty:orange_sand"
+  }
+}

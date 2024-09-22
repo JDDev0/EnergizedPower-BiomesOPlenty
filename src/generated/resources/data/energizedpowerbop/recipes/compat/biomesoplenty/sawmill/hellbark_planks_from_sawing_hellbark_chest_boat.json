@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:hellbark_chest_boat"
+  },
+  "output": {
+    "count": 5,
+    "item": "biomesoplenty:hellbark_planks"
+  },
+  "sawdustAmount": 7
+}

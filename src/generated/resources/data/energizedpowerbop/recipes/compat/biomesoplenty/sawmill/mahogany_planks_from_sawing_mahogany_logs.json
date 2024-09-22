@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "tag": "biomesoplenty:mahogany_logs"
+  },
+  "output": {
+    "count": 6,
+    "item": "biomesoplenty:mahogany_planks"
+  },
+  "sawdustAmount": 1
+}

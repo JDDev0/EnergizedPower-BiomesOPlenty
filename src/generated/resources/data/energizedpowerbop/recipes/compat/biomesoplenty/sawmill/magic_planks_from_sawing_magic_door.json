@@ -1,0 +1,10 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:magic_door"
+  },
+  "output": {
+    "item": "biomesoplenty:magic_planks"
+  },
+  "sawdustAmount": 3
+}

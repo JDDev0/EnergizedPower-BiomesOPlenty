@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "tag": "biomesoplenty:redwood_logs"
+  },
+  "output": {
+    "count": 6,
+    "item": "biomesoplenty:redwood_planks"
+  },
+  "sawdustAmount": 1
+}

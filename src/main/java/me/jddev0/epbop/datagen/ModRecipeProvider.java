@@ -1,11 +1,15 @@
 package me.jddev0.epbop.datagen;
 
 import biomesoplenty.api.BOPAPI;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.init.ModTags;
+import me.jddev0.ep.datagen.recipe.CrusherFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.CrystalGrowthChamberFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.PlantGrowthChamberFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.SawmillFinishedRecipe;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import me.jddev0.ep.recipe.*;
-import net.minecraft.core.HolderLookup;
+import me.jddev0.epbop.registry.tags.CompatibilityItemTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -13,16 +17,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
-
-import java.util.concurrent.CompletableFuture;
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
-    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider);
+    public ModRecipeProvider(PackOutput output) {
+        super(output);
     }
 
     @Override
@@ -34,166 +36,160 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     private void buildCrusherRecipes(RecipeOutput output) {
-        addCrusherRecipe(output, Ingredient.of(BOPItems.WHITE_SANDSTONE), new ItemStack(BOPItems.WHITE_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.WHITE_SANDSTONE.get()), new ItemStack(BOPBlocks.WHITE_SAND.get()),
                 "white_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPItems.SMOOTH_WHITE_SANDSTONE, BOPItems.CUT_WHITE_SANDSTONE,
-                        BOPItems.CHISELED_WHITE_SANDSTONE), new ItemStack(BOPItems.WHITE_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_WHITE_SANDSTONE.get(), BOPBlocks.CUT_WHITE_SANDSTONE.get(),
+                        BOPBlocks.CHISELED_WHITE_SANDSTONE.get()), new ItemStack(BOPBlocks.WHITE_SAND.get()),
                 "white_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPItems.ORANGE_SANDSTONE), new ItemStack(BOPItems.ORANGE_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE.get()), new ItemStack(BOPBlocks.ORANGE_SAND.get()),
                 "orange_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPItems.SMOOTH_ORANGE_SANDSTONE, BOPItems.CUT_ORANGE_SANDSTONE,
-                        BOPItems.CHISELED_ORANGE_SANDSTONE), new ItemStack(BOPItems.ORANGE_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_ORANGE_SANDSTONE.get(), BOPBlocks.CUT_ORANGE_SANDSTONE.get(),
+                        BOPBlocks.CHISELED_ORANGE_SANDSTONE.get()), new ItemStack(BOPBlocks.ORANGE_SAND.get()),
                 "orange_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPItems.BLACK_SANDSTONE), new ItemStack(BOPItems.BLACK_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BLACK_SANDSTONE.get()), new ItemStack(BOPBlocks.BLACK_SAND.get()),
                 "black_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPItems.SMOOTH_BLACK_SANDSTONE, BOPItems.CUT_BLACK_SANDSTONE,
-                        BOPItems.CHISELED_BLACK_SANDSTONE), new ItemStack(BOPItems.BLACK_SAND),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_BLACK_SANDSTONE.get(), BOPBlocks.CUT_BLACK_SANDSTONE.get(),
+                        BOPBlocks.CHISELED_BLACK_SANDSTONE.get()), new ItemStack(BOPBlocks.BLACK_SAND.get()),
                 "black_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPItems.BRIMSTONE_BRICKS, BOPItems.CHISELED_BRIMSTONE_BRICKS),
-                new ItemStack(BOPItems.BRIMSTONE),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS.get(), BOPBlocks.CHISELED_BRIMSTONE_BRICKS.get()),
+                new ItemStack(BOPBlocks.BRIMSTONE.get()),
                 "brimstone_variants");
     }
 
     private void buildSawmillRecipes(RecipeOutput output) {
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.FIR_PLANKS),
-                Ingredient.of(ModTags.Items.FIR_LOGS), Ingredient.of(BOPItems.FIR_FENCE),
-                Ingredient.of(BOPItems.FIR_FENCE_GATE), Ingredient.of(BOPItems.FIR_DOOR),
-                Ingredient.of(BOPItems.FIR_TRAPDOOR), Ingredient.of(BOPItems.FIR_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.FIR_SIGN), Ingredient.of(BOPItems.FIR_BOAT), Ingredient.of(BOPItems.FIR_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.FIR_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.FIR_LOGS), Ingredient.of(BOPBlocks.FIR_FENCE.get()),
+                Ingredient.of(BOPBlocks.FIR_FENCE_GATE.get()), Ingredient.of(BOPBlocks.FIR_DOOR.get()),
+                Ingredient.of(BOPBlocks.FIR_TRAPDOOR.get()), Ingredient.of(BOPBlocks.FIR_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.FIR_SIGN.get()), Ingredient.of(BOPItems.FIR_BOAT.get()), Ingredient.of(BOPItems.FIR_CHEST_BOAT.get()),
                 false, "fir");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.PINE_PLANKS),
-                Ingredient.of(ModTags.Items.PINE_LOGS), Ingredient.of(BOPItems.PINE_FENCE),
-                Ingredient.of(BOPItems.PINE_FENCE_GATE), Ingredient.of(BOPItems.PINE_DOOR),
-                Ingredient.of(BOPItems.PINE_TRAPDOOR), Ingredient.of(BOPItems.PINE_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.PINE_SIGN), Ingredient.of(BOPItems.PINE_BOAT), Ingredient.of(BOPItems.PINE_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.PINE_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.PINE_LOGS), Ingredient.of(BOPBlocks.PINE_FENCE.get()),
+                Ingredient.of(BOPBlocks.PINE_FENCE_GATE.get()), Ingredient.of(BOPBlocks.PINE_DOOR.get()),
+                Ingredient.of(BOPBlocks.PINE_TRAPDOOR.get()), Ingredient.of(BOPBlocks.PINE_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.PINE_SIGN.get()), Ingredient.of(BOPItems.PINE_BOAT.get()), Ingredient.of(BOPItems.PINE_CHEST_BOAT.get()),
                 false, "pine");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.MAPLE_PLANKS),
-                Ingredient.of(ModTags.Items.MAPLE_LOGS), Ingredient.of(BOPItems.MAPLE_FENCE),
-                Ingredient.of(BOPItems.MAPLE_FENCE_GATE), Ingredient.of(BOPItems.MAPLE_DOOR),
-                Ingredient.of(BOPItems.MAPLE_TRAPDOOR), Ingredient.of(BOPItems.MAPLE_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.MAPLE_SIGN), Ingredient.of(BOPItems.MAPLE_BOAT), Ingredient.of(BOPItems.MAPLE_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAPLE_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.MAPLE_LOGS), Ingredient.of(BOPBlocks.MAPLE_FENCE.get()),
+                Ingredient.of(BOPBlocks.MAPLE_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAPLE_DOOR.get()),
+                Ingredient.of(BOPBlocks.MAPLE_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAPLE_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.MAPLE_SIGN.get()), Ingredient.of(BOPItems.MAPLE_BOAT.get()), Ingredient.of(BOPItems.MAPLE_CHEST_BOAT.get()),
                 false, "maple");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.REDWOOD_PLANKS),
-                Ingredient.of(ModTags.Items.REDWOOD_LOGS), Ingredient.of(BOPItems.REDWOOD_FENCE),
-                Ingredient.of(BOPItems.REDWOOD_FENCE_GATE), Ingredient.of(BOPItems.REDWOOD_DOOR),
-                Ingredient.of(BOPItems.REDWOOD_TRAPDOOR), Ingredient.of(BOPItems.REDWOOD_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.REDWOOD_SIGN), Ingredient.of(BOPItems.REDWOOD_BOAT), Ingredient.of(BOPItems.REDWOOD_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.REDWOOD_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.REDWOOD_LOGS), Ingredient.of(BOPBlocks.REDWOOD_FENCE.get()),
+                Ingredient.of(BOPBlocks.REDWOOD_FENCE_GATE.get()), Ingredient.of(BOPBlocks.REDWOOD_DOOR.get()),
+                Ingredient.of(BOPBlocks.REDWOOD_TRAPDOOR.get()), Ingredient.of(BOPBlocks.REDWOOD_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.REDWOOD_SIGN.get()), Ingredient.of(BOPItems.REDWOOD_BOAT.get()), Ingredient.of(BOPItems.REDWOOD_CHEST_BOAT.get()),
                 false, "redwood");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.MAHOGANY_PLANKS),
-                Ingredient.of(ModTags.Items.MAHOGANY_LOGS), Ingredient.of(BOPItems.MAHOGANY_FENCE),
-                Ingredient.of(BOPItems.MAHOGANY_FENCE_GATE), Ingredient.of(BOPItems.MAHOGANY_DOOR),
-                Ingredient.of(BOPItems.MAHOGANY_TRAPDOOR), Ingredient.of(BOPItems.MAHOGANY_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.MAHOGANY_SIGN), Ingredient.of(BOPItems.MAHOGANY_BOAT), Ingredient.of(BOPItems.MAHOGANY_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAHOGANY_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.MAHOGANY_LOGS), Ingredient.of(BOPBlocks.MAHOGANY_FENCE.get()),
+                Ingredient.of(BOPBlocks.MAHOGANY_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAHOGANY_DOOR.get()),
+                Ingredient.of(BOPBlocks.MAHOGANY_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAHOGANY_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.MAHOGANY_SIGN.get()), Ingredient.of(BOPItems.MAHOGANY_BOAT.get()), Ingredient.of(BOPItems.MAHOGANY_CHEST_BOAT.get()),
                 false, "mahogany");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.JACARANDA_PLANKS),
-                Ingredient.of(ModTags.Items.JACARANDA_LOGS), Ingredient.of(BOPItems.JACARANDA_FENCE),
-                Ingredient.of(BOPItems.JACARANDA_FENCE_GATE), Ingredient.of(BOPItems.JACARANDA_DOOR),
-                Ingredient.of(BOPItems.JACARANDA_TRAPDOOR), Ingredient.of(BOPItems.JACARANDA_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.JACARANDA_SIGN), Ingredient.of(BOPItems.JACARANDA_BOAT), Ingredient.of(BOPItems.JACARANDA_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.JACARANDA_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.JACARANDA_LOGS), Ingredient.of(BOPBlocks.JACARANDA_FENCE.get()),
+                Ingredient.of(BOPBlocks.JACARANDA_FENCE_GATE.get()), Ingredient.of(BOPBlocks.JACARANDA_DOOR.get()),
+                Ingredient.of(BOPBlocks.JACARANDA_TRAPDOOR.get()), Ingredient.of(BOPBlocks.JACARANDA_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.JACARANDA_SIGN.get()), Ingredient.of(BOPItems.JACARANDA_BOAT.get()), Ingredient.of(BOPItems.JACARANDA_CHEST_BOAT.get()),
                 false, "jacaranda");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.PALM_PLANKS),
-                Ingredient.of(ModTags.Items.PALM_LOGS), Ingredient.of(BOPItems.PALM_FENCE),
-                Ingredient.of(BOPItems.PALM_FENCE_GATE), Ingredient.of(BOPItems.PALM_DOOR),
-                Ingredient.of(BOPItems.PALM_TRAPDOOR), Ingredient.of(BOPItems.PALM_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.PALM_SIGN), Ingredient.of(BOPItems.PALM_BOAT), Ingredient.of(BOPItems.PALM_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.PALM_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.PALM_LOGS), Ingredient.of(BOPBlocks.PALM_FENCE.get()),
+                Ingredient.of(BOPBlocks.PALM_FENCE_GATE.get()), Ingredient.of(BOPBlocks.PALM_DOOR.get()),
+                Ingredient.of(BOPBlocks.PALM_TRAPDOOR.get()), Ingredient.of(BOPBlocks.PALM_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.PALM_SIGN.get()), Ingredient.of(BOPItems.PALM_BOAT.get()), Ingredient.of(BOPItems.PALM_CHEST_BOAT.get()),
                 false, "palm");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.WILLOW_PLANKS),
-                Ingredient.of(ModTags.Items.WILLOW_LOGS), Ingredient.of(BOPItems.WILLOW_FENCE),
-                Ingredient.of(BOPItems.WILLOW_FENCE_GATE), Ingredient.of(BOPItems.WILLOW_DOOR),
-                Ingredient.of(BOPItems.WILLOW_TRAPDOOR), Ingredient.of(BOPItems.WILLOW_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.WILLOW_SIGN), Ingredient.of(BOPItems.WILLOW_BOAT), Ingredient.of(BOPItems.WILLOW_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.WILLOW_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.WILLOW_LOGS), Ingredient.of(BOPBlocks.WILLOW_FENCE.get()),
+                Ingredient.of(BOPBlocks.WILLOW_FENCE_GATE.get()), Ingredient.of(BOPBlocks.WILLOW_DOOR.get()),
+                Ingredient.of(BOPBlocks.WILLOW_TRAPDOOR.get()), Ingredient.of(BOPBlocks.WILLOW_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.WILLOW_SIGN.get()), Ingredient.of(BOPItems.WILLOW_BOAT.get()), Ingredient.of(BOPItems.WILLOW_CHEST_BOAT.get()),
                 false, "willow");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.DEAD_PLANKS),
-                Ingredient.of(ModTags.Items.DEAD_LOGS), Ingredient.of(BOPItems.DEAD_FENCE),
-                Ingredient.of(BOPItems.DEAD_FENCE_GATE), Ingredient.of(BOPItems.DEAD_DOOR),
-                Ingredient.of(BOPItems.DEAD_TRAPDOOR), Ingredient.of(BOPItems.DEAD_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.DEAD_SIGN), Ingredient.of(BOPItems.DEAD_BOAT), Ingredient.of(BOPItems.DEAD_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.DEAD_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.DEAD_LOGS), Ingredient.of(BOPBlocks.DEAD_FENCE.get()),
+                Ingredient.of(BOPBlocks.DEAD_FENCE_GATE.get()), Ingredient.of(BOPBlocks.DEAD_DOOR.get()),
+                Ingredient.of(BOPBlocks.DEAD_TRAPDOOR.get()), Ingredient.of(BOPBlocks.DEAD_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.DEAD_SIGN.get()), Ingredient.of(BOPItems.DEAD_BOAT.get()), Ingredient.of(BOPItems.DEAD_CHEST_BOAT.get()),
                 false, "dead");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.MAGIC_PLANKS),
-                Ingredient.of(ModTags.Items.MAGIC_LOGS), Ingredient.of(BOPItems.MAGIC_FENCE),
-                Ingredient.of(BOPItems.MAGIC_FENCE_GATE), Ingredient.of(BOPItems.MAGIC_DOOR),
-                Ingredient.of(BOPItems.MAGIC_TRAPDOOR), Ingredient.of(BOPItems.MAGIC_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.MAGIC_SIGN), Ingredient.of(BOPItems.MAGIC_BOAT), Ingredient.of(BOPItems.MAGIC_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAGIC_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.MAGIC_LOGS), Ingredient.of(BOPBlocks.MAGIC_FENCE.get()),
+                Ingredient.of(BOPBlocks.MAGIC_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAGIC_DOOR.get()),
+                Ingredient.of(BOPBlocks.MAGIC_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAGIC_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.MAGIC_SIGN.get()), Ingredient.of(BOPItems.MAGIC_BOAT.get()), Ingredient.of(BOPItems.MAGIC_CHEST_BOAT.get()),
                 false, "magic");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.UMBRAN_PLANKS),
-                Ingredient.of(ModTags.Items.UMBRAN_LOGS), Ingredient.of(BOPItems.UMBRAN_FENCE),
-                Ingredient.of(BOPItems.UMBRAN_FENCE_GATE), Ingredient.of(BOPItems.UMBRAN_DOOR),
-                Ingredient.of(BOPItems.UMBRAN_TRAPDOOR), Ingredient.of(BOPItems.UMBRAN_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.UMBRAN_SIGN), Ingredient.of(BOPItems.UMBRAN_BOAT), Ingredient.of(BOPItems.UMBRAN_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.UMBRAN_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.UMBRAN_LOGS), Ingredient.of(BOPBlocks.UMBRAN_FENCE.get()),
+                Ingredient.of(BOPBlocks.UMBRAN_FENCE_GATE.get()), Ingredient.of(BOPBlocks.UMBRAN_DOOR.get()),
+                Ingredient.of(BOPBlocks.UMBRAN_TRAPDOOR.get()), Ingredient.of(BOPBlocks.UMBRAN_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.UMBRAN_SIGN.get()), Ingredient.of(BOPItems.UMBRAN_BOAT.get()), Ingredient.of(BOPItems.UMBRAN_CHEST_BOAT.get()),
                 false, "umbran");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.HELLBARK_PLANKS),
-                Ingredient.of(ModTags.Items.HELLBARK_LOGS), Ingredient.of(BOPItems.HELLBARK_FENCE),
-                Ingredient.of(BOPItems.HELLBARK_FENCE_GATE), Ingredient.of(BOPItems.HELLBARK_DOOR),
-                Ingredient.of(BOPItems.HELLBARK_TRAPDOOR), Ingredient.of(BOPItems.HELLBARK_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.HELLBARK_SIGN), Ingredient.of(BOPItems.HELLBARK_BOAT), Ingredient.of(BOPItems.HELLBARK_CHEST_BOAT),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.HELLBARK_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.HELLBARK_LOGS), Ingredient.of(BOPBlocks.HELLBARK_FENCE.get()),
+                Ingredient.of(BOPBlocks.HELLBARK_FENCE_GATE.get()), Ingredient.of(BOPBlocks.HELLBARK_DOOR.get()),
+                Ingredient.of(BOPBlocks.HELLBARK_TRAPDOOR.get()), Ingredient.of(BOPBlocks.HELLBARK_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.HELLBARK_SIGN.get()), Ingredient.of(BOPItems.HELLBARK_BOAT.get()), Ingredient.of(BOPItems.HELLBARK_CHEST_BOAT.get()),
                 false, "hellbark");
-
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.EMPYREAL_PLANKS),
-                Ingredient.of(ModTags.Items.EMPYREAL_LOGS), Ingredient.of(BOPItems.EMPYREAL_FENCE),
-                Ingredient.of(BOPItems.EMPYREAL_FENCE_GATE), Ingredient.of(BOPItems.EMPYREAL_DOOR),
-                Ingredient.of(BOPItems.EMPYREAL_TRAPDOOR), Ingredient.of(BOPItems.EMPYREAL_PRESSURE_PLATE),
-                Ingredient.of(BOPItems.EMPYREAL_SIGN), Ingredient.of(BOPItems.EMPYREAL_BOAT), Ingredient.of(BOPItems.EMPYREAL_CHEST_BOAT),
-                false, "empyreal");
     }
 
     private void buildPlantGrowthChamberRecipes(RecipeOutput output) {
-        addBasicFlowerGrowingRecipe(output, BOPItems.VIOLET, "violet");
-        addBasicFlowerGrowingRecipe(output, BOPItems.LAVENDER, "lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.WHITE_LAVENDER, "white_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.ORANGE_COSMOS, "orange_cosmos");
-        addBasicFlowerGrowingRecipe(output, BOPItems.PINK_DAFFODIL, "pink_daffodil");
-        addBasicFlowerGrowingRecipe(output, BOPItems.PINK_HIBISCUS, "pink_hibiscus");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.VIOLET.get(), "violet");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.LAVENDER.get(), "lavender");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ORANGE_COSMOS.get(), "orange_cosmos");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_DAFFODIL.get(), "pink_daffodil");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_HIBISCUS.get(), "pink_hibiscus");
 
-        addBasicFlowerGrowingRecipe(output, BOPItems.TALL_LAVENDER, "tall_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.BLUE_HYDRANGEA, "blue_hydrangea");
-        addBasicFlowerGrowingRecipe(output, BOPItems.GOLDENROD, "goldenrod");
-        addBasicFlowerGrowingRecipe(output, BOPItems.ICY_IRIS, "icy_iris");
-        addBasicFlowerGrowingRecipe(output, BOPItems.GLOWFLOWER, "glowflower");
-        addBasicFlowerGrowingRecipe(output, BOPItems.WILTED_LILY, "wilted_liliy");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.TALL_LAVENDER.get(), "tall_lavender");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.BLUE_HYDRANGEA.get(), "blue_hydrangea");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.GOLDENROD.get(), "goldenrod");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ICY_IRIS.get(), "icy_iris");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.GLOWFLOWER.get(), "glowflower");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.WILTED_LILY.get(), "wilted_liliy");
 
-        addBasicMushroomsGrowingRecipe(output, BOPItems.TOADSTOOL, "toadstool");
+        addBasicMushroomsGrowingRecipe(output, BOPBlocks.TOADSTOOL.get(), "toadstool");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WILDFLOWER), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WILDFLOWER.get()), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WILDFLOWER.get()), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "wildflower", "wildflower");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WHITE_PETALS), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WHITE_PETALS.get()), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WHITE_PETALS.get()), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
-        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK),
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
+        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK.get()),
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK.get()), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
 
     private void addCrusherRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
+        ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
                 getItemName(output.getItem()) + "_from_crushing_" + recipeIngredientName);
 
-        CrusherRecipe recipe = new CrusherRecipe(output, input);
-        recipeOutput.accept(recipeId, recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        CrusherFinishedRecipe recipe = new CrusherFinishedRecipe(
+                recipeId,
+                output, input
+        );
+        recipeOutput.accept(recipe);
     }
 
     private void addBasicWoodSawmillRecipe(RecipeOutput recipeOutput, ItemStack planksItem,
@@ -239,11 +235,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
     private void addSawmillRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output,
                                          int sawdustAmount, String outputName, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
+        ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
                 outputName + "_from_sawing_" + recipeIngredientName);
 
-        SawmillRecipe recipe = new SawmillRecipe(output, input, sawdustAmount);
-        recipeOutput.accept(recipeId, recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        SawmillFinishedRecipe recipe = new SawmillFinishedRecipe(
+                recipeId,
+                output, input, sawdustAmount
+        );
+        recipeOutput.accept(recipe);
     }
 
     private void addBasicFlowerGrowingRecipe(RecipeOutput recipeOutput, ItemLike flowerItem,
@@ -265,11 +264,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void addPlantGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input,
                                              OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
+        ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
-        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
-        recipeOutput.accept(recipeId, recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        PlantGrowthChamberFinishedRecipe recipe = new PlantGrowthChamberFinishedRecipe(
+                recipeId,
+                outputs, input, ticks
+        );
+        recipeOutput.accept(recipe);
     }
 
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
@@ -278,10 +280,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
                                                       int inputCount, int ticks) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
+        ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemName(output.output().getItem()));
 
-        CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, inputCount, ticks);
-        recipeOutput.accept(recipeId, recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        CrystalGrowthChamberFinishedRecipe recipe = new CrystalGrowthChamberFinishedRecipe(
+                recipeId,
+                output, input, inputCount, ticks
+        );
+        recipeOutput.accept(recipe);
     }
 }

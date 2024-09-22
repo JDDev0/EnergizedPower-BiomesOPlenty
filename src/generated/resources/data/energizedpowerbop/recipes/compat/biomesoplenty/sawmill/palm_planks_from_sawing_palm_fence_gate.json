@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:palm_fence_gate"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:palm_planks"
+  },
+  "sawdustAmount": 3
+}

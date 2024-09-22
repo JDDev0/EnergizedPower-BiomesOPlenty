@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:jacaranda_trapdoor"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:jacaranda_planks"
+  },
+  "sawdustAmount": 3
+}

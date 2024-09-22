@@ -1,0 +1,10 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:palm_pressure_plate"
+  },
+  "output": {
+    "item": "biomesoplenty:palm_planks"
+  },
+  "sawdustAmount": 2
+}

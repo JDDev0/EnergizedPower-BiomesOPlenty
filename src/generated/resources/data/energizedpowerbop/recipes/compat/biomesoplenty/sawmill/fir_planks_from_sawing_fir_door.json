@@ -1,0 +1,10 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:fir_door"
+  },
+  "output": {
+    "item": "biomesoplenty:fir_planks"
+  },
+  "sawdustAmount": 3
+}

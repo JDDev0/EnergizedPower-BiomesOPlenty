@@ -1,0 +1,10 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:jacaranda_door"
+  },
+  "output": {
+    "item": "biomesoplenty:jacaranda_planks"
+  },
+  "sawdustAmount": 3
+}

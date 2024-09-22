@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:willow_boat"
+  },
+  "output": {
+    "count": 4,
+    "item": "biomesoplenty:willow_planks"
+  },
+  "sawdustAmount": 3
+}

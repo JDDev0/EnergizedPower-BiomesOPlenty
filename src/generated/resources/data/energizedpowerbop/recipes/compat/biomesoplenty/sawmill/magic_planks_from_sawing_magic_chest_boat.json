@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:magic_chest_boat"
+  },
+  "output": {
+    "count": 5,
+    "item": "biomesoplenty:magic_planks"
+  },
+  "sawdustAmount": 7
+}
