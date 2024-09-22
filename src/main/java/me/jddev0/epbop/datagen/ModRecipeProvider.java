@@ -168,14 +168,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         addBasicMushroomsGrowingRecipe(output, BOPItems.TOADSTOOL, "toadstool");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WILDFLOWER), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WILDFLOWER), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "wildflower", "wildflower");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WHITE_PETALS), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WHITE_PETALS), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "white_petals", "white_petals");
@@ -183,7 +183,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
         addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK),
-                new CrystalGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
@@ -248,22 +248,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void addBasicFlowerGrowingRecipe(RecipeOutput recipeOutput, ItemLike flowerItem,
                                                     String outputName) {
-        addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(flowerItem), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
+        addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(flowerItem), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
                         1., 1., .33
                 })
         }, 16000, outputName, getItemName(flowerItem));
     }
     private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeOutput, ItemLike mushroomItem,
                                                        String outputName) {
-        addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(mushroomItem), new PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] {
-                new PlantGrowthChamberRecipe.OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
+        addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(mushroomItem), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
                         1., 1., .5, .25
                 })
         }, 16000, outputName, getItemName(mushroomItem));
     }
     private void addPlantGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input,
-                                             PlantGrowthChamberRecipe.OutputItemStackWithPercentages[] outputs, int ticks,
+                                             OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
         ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
@@ -272,11 +272,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipeOutput.accept(recipeId, recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
-    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, CrystalGrowthChamberRecipe.OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
                                                       int ticks) {
         addCrystalGrowthChamberRecipe(recipeOutput, input, output, 1, ticks);
     }
-    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, CrystalGrowthChamberRecipe.OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
                                                       int inputCount, int ticks) {
         ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemName(output.output().getItem()));
