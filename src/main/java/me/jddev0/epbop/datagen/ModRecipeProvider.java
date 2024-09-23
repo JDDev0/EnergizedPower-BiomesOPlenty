@@ -1,8 +1,8 @@
 package me.jddev0.epbop.datagen;
 
-import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.core.BiomesOPlenty;
 import me.jddev0.ep.datagen.recipe.CrusherFinishedRecipe;
 import me.jddev0.ep.datagen.recipe.CrystalGrowthChamberFinishedRecipe;
 import me.jddev0.ep.datagen.recipe.PlantGrowthChamberFinishedRecipe;
@@ -11,7 +11,7 @@ import me.jddev0.epbop.EnergizedPowerBOPMod;
 import me.jddev0.ep.recipe.*;
 import me.jddev0.epbop.registry.tags.CompatibilityItemTags;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +19,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
+import java.util.function.Consumer;
+
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
+    private static final String BIOMES_O_PLENTY_MOD_ID = BiomesOPlenty.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
     public ModRecipeProvider(PackOutput output) {
@@ -28,14 +30,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output) {
+    protected void buildRecipes(Consumer<FinishedRecipe> output) {
         buildCrusherRecipes(output);
         buildSawmillRecipes(output);
         buildPlantGrowthChamberRecipes(output);
         buildCrystalGrowthChamberRecipes(output);
     }
 
-    private void buildCrusherRecipes(RecipeOutput output) {
+    private void buildCrusherRecipes(Consumer<FinishedRecipe> output) {
         addCrusherRecipe(output, Ingredient.of(BOPBlocks.WHITE_SANDSTONE.get()), new ItemStack(BOPBlocks.WHITE_SAND.get()),
                 "white_sandstone");
         addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_WHITE_SANDSTONE.get(), BOPBlocks.CUT_WHITE_SANDSTONE.get(),
@@ -59,27 +61,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "brimstone_variants");
     }
 
-    private void buildSawmillRecipes(RecipeOutput output) {
+    private void buildSawmillRecipes(Consumer<FinishedRecipe> output) {
         addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.FIR_PLANKS.get()),
                 Ingredient.of(CompatibilityItemTags.FIR_LOGS), Ingredient.of(BOPBlocks.FIR_FENCE.get()),
                 Ingredient.of(BOPBlocks.FIR_FENCE_GATE.get()), Ingredient.of(BOPBlocks.FIR_DOOR.get()),
                 Ingredient.of(BOPBlocks.FIR_TRAPDOOR.get()), Ingredient.of(BOPBlocks.FIR_PRESSURE_PLATE.get()),
                 Ingredient.of(BOPItems.FIR_SIGN.get()), Ingredient.of(BOPItems.FIR_BOAT.get()), Ingredient.of(BOPItems.FIR_CHEST_BOAT.get()),
                 false, "fir");
-
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.PINE_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.PINE_LOGS), Ingredient.of(BOPBlocks.PINE_FENCE.get()),
-                Ingredient.of(BOPBlocks.PINE_FENCE_GATE.get()), Ingredient.of(BOPBlocks.PINE_DOOR.get()),
-                Ingredient.of(BOPBlocks.PINE_TRAPDOOR.get()), Ingredient.of(BOPBlocks.PINE_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.PINE_SIGN.get()), Ingredient.of(BOPItems.PINE_BOAT.get()), Ingredient.of(BOPItems.PINE_CHEST_BOAT.get()),
-                false, "pine");
-
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAPLE_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.MAPLE_LOGS), Ingredient.of(BOPBlocks.MAPLE_FENCE.get()),
-                Ingredient.of(BOPBlocks.MAPLE_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAPLE_DOOR.get()),
-                Ingredient.of(BOPBlocks.MAPLE_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAPLE_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.MAPLE_SIGN.get()), Ingredient.of(BOPItems.MAPLE_BOAT.get()), Ingredient.of(BOPItems.MAPLE_CHEST_BOAT.get()),
-                false, "maple");
 
         addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.REDWOOD_PLANKS.get()),
                 Ingredient.of(CompatibilityItemTags.REDWOOD_LOGS), Ingredient.of(BOPBlocks.REDWOOD_FENCE.get()),
@@ -145,7 +133,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 false, "hellbark");
     }
 
-    private void buildPlantGrowthChamberRecipes(RecipeOutput output) {
+    private void buildPlantGrowthChamberRecipes(Consumer<FinishedRecipe> output) {
         addBasicFlowerGrowingRecipe(output, BOPBlocks.VIOLET.get(), "violet");
         addBasicFlowerGrowingRecipe(output, BOPBlocks.LAVENDER.get(), "lavender");
         addBasicFlowerGrowingRecipe(output, BOPBlocks.ORANGE_COSMOS.get(), "orange_cosmos");
@@ -174,14 +162,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }, 16000, "white_petals", "white_petals");
     }
 
-    private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
+    private void buildCrystalGrowthChamberRecipes(Consumer<FinishedRecipe> output) {
         addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK.get()),
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK.get()), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
 
-    private void addCrusherRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output, String recipeIngredientName) {
+    private void addCrusherRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input, ItemStack output, String recipeIngredientName) {
         ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
                 getItemName(output.getItem()) + "_from_crushing_" + recipeIngredientName);
 
@@ -192,7 +180,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipeOutput.accept(recipe);
     }
 
-    private void addBasicWoodSawmillRecipe(RecipeOutput recipeOutput, ItemStack planksItem,
+    private void addBasicWoodSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, ItemStack planksItem,
                                                   Ingredient logsInput, Ingredient fenceInput, Ingredient fenceGateInput,
                                                   Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                   Ingredient signInput, Ingredient boatInput, Ingredient chestBoatInput,
@@ -203,7 +191,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addBasicWoodWithoutLogsSawmillRecipe(recipeOutput, planksItem, fenceInput, fenceGateInput, doorInput, trapdoorInput,
                 pressurePlateInput, signInput, boatInput, chestBoatInput, isRaft, woodName);
     }
-    private void addBasicWoodWithoutLogsSawmillRecipe(RecipeOutput recipeOutput, ItemStack planksItem,
+    private void addBasicWoodWithoutLogsSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, ItemStack planksItem,
                                                              Ingredient fenceInput, Ingredient fenceGateInput,
                                                              Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                              Ingredient signInput, Ingredient boatInput, Ingredient chestBoatInput,
@@ -216,7 +204,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addSawmillRecipe(recipeOutput, chestBoatInput, planksItem.copyWithCount(5), 7, getItemName(planksItem.getItem()),
                 woodName + (isRaft?"_chest_raft":"_chest_boat"));
     }
-    private void addBasicWoodWithoutLogsAndBoatsSawmillRecipe(RecipeOutput recipeOutput, ItemStack planksItem,
+    private void addBasicWoodWithoutLogsAndBoatsSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, ItemStack planksItem,
                                                                      Ingredient fenceInput, Ingredient fenceGateInput,
                                                                      Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                                      Ingredient signInput, String woodName) {
@@ -233,7 +221,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addSawmillRecipe(recipeOutput, signInput, planksItem.copyWithCount(2), 1, getItemName(planksItem.getItem()),
                 woodName + "_sign");
     }
-    private void addSawmillRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output,
+    private void addSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input, ItemStack output,
                                          int sawdustAmount, String outputName, String recipeIngredientName) {
         ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
                 outputName + "_from_sawing_" + recipeIngredientName);
@@ -245,7 +233,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipeOutput.accept(recipe);
     }
 
-    private void addBasicFlowerGrowingRecipe(RecipeOutput recipeOutput, ItemLike flowerItem,
+    private void addBasicFlowerGrowingRecipe(Consumer<FinishedRecipe> recipeOutput, ItemLike flowerItem,
                                                     String outputName) {
         addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(flowerItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
@@ -253,7 +241,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 })
         }, 16000, outputName, getItemName(flowerItem));
     }
-    private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeOutput, ItemLike mushroomItem,
+    private void addBasicMushroomsGrowingRecipe(Consumer<FinishedRecipe> recipeOutput, ItemLike mushroomItem,
                                                        String outputName) {
         addPlantGrowthChamberRecipe(recipeOutput, Ingredient.of(mushroomItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
@@ -261,7 +249,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 })
         }, 16000, outputName, getItemName(mushroomItem));
     }
-    private void addPlantGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input,
+    private void addPlantGrowthChamberRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input,
                                              OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
         ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
@@ -274,11 +262,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipeOutput.accept(recipe);
     }
 
-    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
                                                       int ticks) {
         addCrystalGrowthChamberRecipe(recipeOutput, input, output, 1, ticks);
     }
-    private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
                                                       int inputCount, int ticks) {
         ResourceLocation recipeId = new ResourceLocation(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemName(output.output().getItem()));
