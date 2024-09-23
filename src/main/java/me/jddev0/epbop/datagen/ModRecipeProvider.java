@@ -1,6 +1,7 @@
 package me.jddev0.epbop.datagen;
 
 import biomesoplenty.api.BOPAPI;
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
@@ -157,6 +158,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addBasicFlowerGrowingRecipe(output, BOPItems.ORANGE_COSMOS, "orange_cosmos");
         addBasicFlowerGrowingRecipe(output, BOPItems.PINK_DAFFODIL, "pink_daffodil");
         addBasicFlowerGrowingRecipe(output, BOPItems.PINK_HIBISCUS, "pink_hibiscus");
+
+        addBasicFlowerGrowingRecipe(output, BOPItems.ROSE, "rose");
 
         addBasicFlowerGrowingRecipe(output, BOPItems.TALL_LAVENDER, "tall_lavender");
         addBasicFlowerGrowingRecipe(output, BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");
