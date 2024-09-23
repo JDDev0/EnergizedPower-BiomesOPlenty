@@ -140,6 +140,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_DAFFODIL.get(), "pink_daffodil");
         addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_HIBISCUS.get(), "pink_hibiscus");
 
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ROSE.get(), "rose");
+
         addBasicFlowerGrowingRecipe(output, BOPBlocks.TALL_LAVENDER.get(), "tall_lavender");
         addBasicFlowerGrowingRecipe(output, BOPBlocks.BLUE_HYDRANGEA.get(), "blue_hydrangea");
         addBasicFlowerGrowingRecipe(output, BOPBlocks.GOLDENROD.get(), "goldenrod");
