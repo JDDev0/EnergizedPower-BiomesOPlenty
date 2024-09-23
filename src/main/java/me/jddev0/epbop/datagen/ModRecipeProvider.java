@@ -7,10 +7,11 @@ import me.jddev0.ep.datagen.recipe.CrusherFinishedRecipe;
 import me.jddev0.ep.datagen.recipe.CrystalGrowthChamberFinishedRecipe;
 import me.jddev0.ep.datagen.recipe.PlantGrowthChamberFinishedRecipe;
 import me.jddev0.ep.datagen.recipe.SawmillFinishedRecipe;
+import me.jddev0.ep.util.ItemStackUtils;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import me.jddev0.ep.recipe.*;
 import me.jddev0.epbop.registry.tags.CompatibilityItemTags;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -25,12 +26,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private static final String BIOMES_O_PLENTY_MOD_ID = BiomesOPlenty.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
-    public ModRecipeProvider(PackOutput output) {
+    public ModRecipeProvider(DataGenerator output) {
         super(output);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> output) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> output) {
         buildCrusherRecipes(output);
         buildSawmillRecipes(output);
         buildPlantGrowthChamberRecipes(output);
@@ -55,10 +56,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_BLACK_SANDSTONE.get(), BOPBlocks.CUT_BLACK_SANDSTONE.get(),
                         BOPBlocks.CHISELED_BLACK_SANDSTONE.get()), new ItemStack(BOPBlocks.BLACK_SAND.get()),
                 "black_sandstone_variants");
-
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS.get(), BOPBlocks.CHISELED_BRIMSTONE_BRICKS.get()),
-                new ItemStack(BOPBlocks.BRIMSTONE.get()),
-                "brimstone_variants");
     }
 
     private void buildSawmillRecipes(Consumer<FinishedRecipe> output) {
@@ -154,17 +151,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "wildflower", "wildflower");
-
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WHITE_PETALS.get()), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WHITE_PETALS.get()), new double[] {
-                        1., 1., 1., .67, .33, .33, .15
-                })
-        }, 16000, "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes(Consumer<FinishedRecipe> output) {
-        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK.get()),
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK.get()), new double[] {
+        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_SHARD.get()),
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_SHARD.get()), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
@@ -185,7 +176,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                                   Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                   Ingredient signInput, Ingredient boatInput, Ingredient chestBoatInput,
                                                   boolean isRaft, String woodName) {
-        addSawmillRecipe(recipeOutput, logsInput, planksItem.copyWithCount(6), 1, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, logsInput, ItemStackUtils.copyWithCount(planksItem, 6), 1, getItemName(planksItem.getItem()),
                 woodName + "_logs");
 
         addBasicWoodWithoutLogsSawmillRecipe(recipeOutput, planksItem, fenceInput, fenceGateInput, doorInput, trapdoorInput,
@@ -199,9 +190,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addBasicWoodWithoutLogsAndBoatsSawmillRecipe(recipeOutput, planksItem, fenceInput, fenceGateInput, doorInput,
                 trapdoorInput, pressurePlateInput, signInput, woodName);
 
-        addSawmillRecipe(recipeOutput, boatInput, planksItem.copyWithCount(4), 3, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, boatInput, ItemStackUtils.copyWithCount(planksItem, 4), 3, getItemName(planksItem.getItem()),
                 woodName + (isRaft?"_raft":"_boat"));
-        addSawmillRecipe(recipeOutput, chestBoatInput, planksItem.copyWithCount(5), 7, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, chestBoatInput, ItemStackUtils.copyWithCount(planksItem, 5), 7, getItemName(planksItem.getItem()),
                 woodName + (isRaft?"_chest_raft":"_chest_boat"));
     }
     private void addBasicWoodWithoutLogsAndBoatsSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, ItemStack planksItem,
@@ -210,15 +201,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                                                      Ingredient signInput, String woodName) {
         addSawmillRecipe(recipeOutput, fenceInput, planksItem, 2, getItemName(planksItem.getItem()),
                 woodName + "_fence");
-        addSawmillRecipe(recipeOutput, fenceGateInput, planksItem.copyWithCount(2), 3, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, fenceGateInput, ItemStackUtils.copyWithCount(planksItem, 2), 3, getItemName(planksItem.getItem()),
                 woodName + "_fence_gate");
         addSawmillRecipe(recipeOutput, doorInput, planksItem, 3, getItemName(planksItem.getItem()),
                 woodName + "_door");
-        addSawmillRecipe(recipeOutput, trapdoorInput, planksItem.copyWithCount(2), 3, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, trapdoorInput, ItemStackUtils.copyWithCount(planksItem, 2), 3, getItemName(planksItem.getItem()),
                 woodName + "_trapdoor");
         addSawmillRecipe(recipeOutput, pressurePlateInput, planksItem, 2, getItemName(planksItem.getItem()),
                 woodName + "_pressure_plate");
-        addSawmillRecipe(recipeOutput, signInput, planksItem.copyWithCount(2), 1, getItemName(planksItem.getItem()),
+        addSawmillRecipe(recipeOutput, signInput, ItemStackUtils.copyWithCount(planksItem, 2), 1, getItemName(planksItem.getItem()),
                 woodName + "_sign");
     }
     private void addSawmillRecipe(Consumer<FinishedRecipe> recipeOutput, Ingredient input, ItemStack output,

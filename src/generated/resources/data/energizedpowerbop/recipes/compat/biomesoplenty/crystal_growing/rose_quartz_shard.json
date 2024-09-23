@@ -1,12 +1,12 @@
 {
   "type": "energizedpower:crystal_growth_chamber",
   "ingredient": {
-    "item": "biomesoplenty:rose_quartz_chunk"
+    "item": "biomesoplenty:rose_quartz_shard"
   },
   "inputCount": 1,
   "output": {
     "output": {
-      "item": "biomesoplenty:rose_quartz_chunk"
+      "item": "biomesoplenty:rose_quartz_shard"
     },
     "percentages": [
       1.0,
