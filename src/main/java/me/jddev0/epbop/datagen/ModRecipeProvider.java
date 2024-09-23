@@ -73,6 +73,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Ingredient.of(BOPItems.REDWOOD_SIGN.get()), Ingredient.of(BOPItems.REDWOOD_BOAT.get()), Ingredient.of(BOPItems.REDWOOD_CHEST_BOAT.get()),
                 false, "redwood");
 
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.CHERRY_PLANKS.get()),
+                Ingredient.of(CompatibilityItemTags.CHERRY_LOGS), Ingredient.of(BOPBlocks.CHERRY_FENCE.get()),
+                Ingredient.of(BOPBlocks.CHERRY_FENCE_GATE.get()), Ingredient.of(BOPBlocks.CHERRY_DOOR.get()),
+                Ingredient.of(BOPBlocks.CHERRY_TRAPDOOR.get()), Ingredient.of(BOPBlocks.CHERRY_PRESSURE_PLATE.get()),
+                Ingredient.of(BOPItems.CHERRY_SIGN.get()), Ingredient.of(BOPItems.CHERRY_BOAT.get()), Ingredient.of(BOPItems.CHERRY_CHEST_BOAT.get()),
+                false, "cherry");
+
         addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAHOGANY_PLANKS.get()),
                 Ingredient.of(CompatibilityItemTags.MAHOGANY_LOGS), Ingredient.of(BOPBlocks.MAHOGANY_FENCE.get()),
                 Ingredient.of(BOPBlocks.MAHOGANY_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAHOGANY_DOOR.get()),

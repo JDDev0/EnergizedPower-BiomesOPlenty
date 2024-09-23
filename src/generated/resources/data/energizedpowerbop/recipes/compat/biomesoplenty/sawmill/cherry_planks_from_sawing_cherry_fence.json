@@ -1,0 +1,10 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:cherry_fence"
+  },
+  "output": {
+    "item": "biomesoplenty:cherry_planks"
+  },
+  "sawdustAmount": 2
+}

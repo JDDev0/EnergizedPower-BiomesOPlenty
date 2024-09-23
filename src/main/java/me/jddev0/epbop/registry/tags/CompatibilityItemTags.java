@@ -12,6 +12,8 @@ public final class CompatibilityItemTags {
             new ResourceLocation("biomesoplenty", "fir_logs"));
     public static final TagKey<Item> REDWOOD_LOGS = TagKey.create(Registry.ITEM_REGISTRY,
             new ResourceLocation("biomesoplenty", "redwood_logs"));
+    public static final TagKey<Item> CHERRY_LOGS = TagKey.create(Registry.ITEM_REGISTRY,
+            new ResourceLocation("biomesoplenty", "cherry_logs"));
     public static final TagKey<Item> MAHOGANY_LOGS = TagKey.create(Registry.ITEM_REGISTRY,
             new ResourceLocation("biomesoplenty", "mahogany_logs"));
     public static final TagKey<Item> JACARANDA_LOGS = TagKey.create(Registry.ITEM_REGISTRY,

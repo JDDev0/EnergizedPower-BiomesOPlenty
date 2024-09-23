@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "tag": "biomesoplenty:cherry_logs"
+  },
+  "output": {
+    "count": 6,
+    "item": "biomesoplenty:cherry_planks"
+  },
+  "sawdustAmount": 1
+}
