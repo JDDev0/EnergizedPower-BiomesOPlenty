@@ -1,5 +1,5 @@
 # EnergizedPower-BiomesOPlenty
-Compatibility between Energized Power and Biomes O' Plenty
+Compatibility between Energized Power and Biomes O' Plenty<br>
 Download on CurseForge: [Energized Power - Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/energized-power-biomes-o-plenty)<br>
 Download on Modrinth: [Energized Power - Biomes O' Plenty](https://modrinth.com/mod/energized-power-bop)
 
