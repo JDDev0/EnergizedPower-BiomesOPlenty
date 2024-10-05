@@ -153,16 +153,16 @@ dependencies {
     localRuntime "curse.maven:energized-power-782147:5746805"
 
     // Biomes O' Plenty integration
-    compileOnly "curse.maven:biomes-o-plenty-220318:5667006"
+    compileOnly "curse.maven:biomes-o-plenty-220318:5784774"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:5667006"
+    localRuntime "curse.maven:biomes-o-plenty-220318:5784774"
     localRuntime "curse.maven:glitchcore-955399:5660740"
     localRuntime "curse.maven:terrablender-neoforge-940057:5685546"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    localRuntime "dev.emi:emi-neoforge:1.1.13+1.21.1"
+    localRuntime "dev.emi:emi-neoforge:1.1.14+1.21.1"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
