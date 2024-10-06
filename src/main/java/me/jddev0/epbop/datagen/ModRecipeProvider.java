@@ -38,135 +38,135 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     private void buildCrusherRecipes(Consumer<FinishedRecipe> output) {
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.WHITE_SANDSTONE.get()), new ItemStack(BOPBlocks.WHITE_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.WHITE_SANDSTONE), new ItemStack(BOPBlocks.WHITE_SAND),
                 "white_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_WHITE_SANDSTONE.get(), BOPBlocks.CUT_WHITE_SANDSTONE.get(),
-                        BOPBlocks.CHISELED_WHITE_SANDSTONE.get()), new ItemStack(BOPBlocks.WHITE_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_WHITE_SANDSTONE, BOPBlocks.CUT_WHITE_SANDSTONE,
+                        BOPBlocks.CHISELED_WHITE_SANDSTONE), new ItemStack(BOPBlocks.WHITE_SAND),
                 "white_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE.get()), new ItemStack(BOPBlocks.ORANGE_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE), new ItemStack(BOPBlocks.ORANGE_SAND),
                 "orange_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_ORANGE_SANDSTONE.get(), BOPBlocks.CUT_ORANGE_SANDSTONE.get(),
-                        BOPBlocks.CHISELED_ORANGE_SANDSTONE.get()), new ItemStack(BOPBlocks.ORANGE_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_ORANGE_SANDSTONE, BOPBlocks.CUT_ORANGE_SANDSTONE,
+                        BOPBlocks.CHISELED_ORANGE_SANDSTONE), new ItemStack(BOPBlocks.ORANGE_SAND),
                 "orange_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BLACK_SANDSTONE.get()), new ItemStack(BOPBlocks.BLACK_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BLACK_SANDSTONE), new ItemStack(BOPBlocks.BLACK_SAND),
                 "black_sandstone");
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_BLACK_SANDSTONE.get(), BOPBlocks.CUT_BLACK_SANDSTONE.get(),
-                        BOPBlocks.CHISELED_BLACK_SANDSTONE.get()), new ItemStack(BOPBlocks.BLACK_SAND.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.SMOOTH_BLACK_SANDSTONE, BOPBlocks.CUT_BLACK_SANDSTONE,
+                        BOPBlocks.CHISELED_BLACK_SANDSTONE), new ItemStack(BOPBlocks.BLACK_SAND),
                 "black_sandstone_variants");
 
-        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS.get(), BOPBlocks.CHISELED_BRIMSTONE_BRICKS.get()),
-                new ItemStack(BOPBlocks.BRIMSTONE.get()),
+        addCrusherRecipe(output, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS),
+                new ItemStack(BOPBlocks.BRIMSTONE),
                 "brimstone_variants");
     }
 
     private void buildSawmillRecipes(Consumer<FinishedRecipe> output) {
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.FIR_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.FIR_LOGS), Ingredient.of(BOPBlocks.FIR_FENCE.get()),
-                Ingredient.of(BOPBlocks.FIR_FENCE_GATE.get()), Ingredient.of(BOPBlocks.FIR_DOOR.get()),
-                Ingredient.of(BOPBlocks.FIR_TRAPDOOR.get()), Ingredient.of(BOPBlocks.FIR_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.FIR_SIGN.get()), Ingredient.of(BOPItems.FIR_BOAT.get()), Ingredient.of(BOPItems.FIR_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.FIR_PLANKS),
+                Ingredient.of(CompatibilityItemTags.FIR_LOGS), Ingredient.of(BOPBlocks.FIR_FENCE),
+                Ingredient.of(BOPBlocks.FIR_FENCE_GATE), Ingredient.of(BOPBlocks.FIR_DOOR),
+                Ingredient.of(BOPBlocks.FIR_TRAPDOOR), Ingredient.of(BOPBlocks.FIR_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.FIR_SIGN), Ingredient.of(BOPItems.FIR_BOAT), Ingredient.of(BOPItems.FIR_CHEST_BOAT),
                 false, "fir");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.REDWOOD_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.REDWOOD_LOGS), Ingredient.of(BOPBlocks.REDWOOD_FENCE.get()),
-                Ingredient.of(BOPBlocks.REDWOOD_FENCE_GATE.get()), Ingredient.of(BOPBlocks.REDWOOD_DOOR.get()),
-                Ingredient.of(BOPBlocks.REDWOOD_TRAPDOOR.get()), Ingredient.of(BOPBlocks.REDWOOD_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.REDWOOD_SIGN.get()), Ingredient.of(BOPItems.REDWOOD_BOAT.get()), Ingredient.of(BOPItems.REDWOOD_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.REDWOOD_PLANKS),
+                Ingredient.of(CompatibilityItemTags.REDWOOD_LOGS), Ingredient.of(BOPBlocks.REDWOOD_FENCE),
+                Ingredient.of(BOPBlocks.REDWOOD_FENCE_GATE), Ingredient.of(BOPBlocks.REDWOOD_DOOR),
+                Ingredient.of(BOPBlocks.REDWOOD_TRAPDOOR), Ingredient.of(BOPBlocks.REDWOOD_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.REDWOOD_SIGN), Ingredient.of(BOPItems.REDWOOD_BOAT), Ingredient.of(BOPItems.REDWOOD_CHEST_BOAT),
                 false, "redwood");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAHOGANY_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.MAHOGANY_LOGS), Ingredient.of(BOPBlocks.MAHOGANY_FENCE.get()),
-                Ingredient.of(BOPBlocks.MAHOGANY_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAHOGANY_DOOR.get()),
-                Ingredient.of(BOPBlocks.MAHOGANY_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAHOGANY_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.MAHOGANY_SIGN.get()), Ingredient.of(BOPItems.MAHOGANY_BOAT.get()), Ingredient.of(BOPItems.MAHOGANY_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAHOGANY_PLANKS),
+                Ingredient.of(CompatibilityItemTags.MAHOGANY_LOGS), Ingredient.of(BOPBlocks.MAHOGANY_FENCE),
+                Ingredient.of(BOPBlocks.MAHOGANY_FENCE_GATE), Ingredient.of(BOPBlocks.MAHOGANY_DOOR),
+                Ingredient.of(BOPBlocks.MAHOGANY_TRAPDOOR), Ingredient.of(BOPBlocks.MAHOGANY_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.MAHOGANY_SIGN), Ingredient.of(BOPItems.MAHOGANY_BOAT), Ingredient.of(BOPItems.MAHOGANY_CHEST_BOAT),
                 false, "mahogany");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.JACARANDA_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.JACARANDA_LOGS), Ingredient.of(BOPBlocks.JACARANDA_FENCE.get()),
-                Ingredient.of(BOPBlocks.JACARANDA_FENCE_GATE.get()), Ingredient.of(BOPBlocks.JACARANDA_DOOR.get()),
-                Ingredient.of(BOPBlocks.JACARANDA_TRAPDOOR.get()), Ingredient.of(BOPBlocks.JACARANDA_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.JACARANDA_SIGN.get()), Ingredient.of(BOPItems.JACARANDA_BOAT.get()), Ingredient.of(BOPItems.JACARANDA_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.JACARANDA_PLANKS),
+                Ingredient.of(CompatibilityItemTags.JACARANDA_LOGS), Ingredient.of(BOPBlocks.JACARANDA_FENCE),
+                Ingredient.of(BOPBlocks.JACARANDA_FENCE_GATE), Ingredient.of(BOPBlocks.JACARANDA_DOOR),
+                Ingredient.of(BOPBlocks.JACARANDA_TRAPDOOR), Ingredient.of(BOPBlocks.JACARANDA_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.JACARANDA_SIGN), Ingredient.of(BOPItems.JACARANDA_BOAT), Ingredient.of(BOPItems.JACARANDA_CHEST_BOAT),
                 false, "jacaranda");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.PALM_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.PALM_LOGS), Ingredient.of(BOPBlocks.PALM_FENCE.get()),
-                Ingredient.of(BOPBlocks.PALM_FENCE_GATE.get()), Ingredient.of(BOPBlocks.PALM_DOOR.get()),
-                Ingredient.of(BOPBlocks.PALM_TRAPDOOR.get()), Ingredient.of(BOPBlocks.PALM_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.PALM_SIGN.get()), Ingredient.of(BOPItems.PALM_BOAT.get()), Ingredient.of(BOPItems.PALM_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.PALM_PLANKS),
+                Ingredient.of(CompatibilityItemTags.PALM_LOGS), Ingredient.of(BOPBlocks.PALM_FENCE),
+                Ingredient.of(BOPBlocks.PALM_FENCE_GATE), Ingredient.of(BOPBlocks.PALM_DOOR),
+                Ingredient.of(BOPBlocks.PALM_TRAPDOOR), Ingredient.of(BOPBlocks.PALM_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.PALM_SIGN), Ingredient.of(BOPItems.PALM_BOAT), Ingredient.of(BOPItems.PALM_CHEST_BOAT),
                 false, "palm");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.WILLOW_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.WILLOW_LOGS), Ingredient.of(BOPBlocks.WILLOW_FENCE.get()),
-                Ingredient.of(BOPBlocks.WILLOW_FENCE_GATE.get()), Ingredient.of(BOPBlocks.WILLOW_DOOR.get()),
-                Ingredient.of(BOPBlocks.WILLOW_TRAPDOOR.get()), Ingredient.of(BOPBlocks.WILLOW_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.WILLOW_SIGN.get()), Ingredient.of(BOPItems.WILLOW_BOAT.get()), Ingredient.of(BOPItems.WILLOW_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.WILLOW_PLANKS),
+                Ingredient.of(CompatibilityItemTags.WILLOW_LOGS), Ingredient.of(BOPBlocks.WILLOW_FENCE),
+                Ingredient.of(BOPBlocks.WILLOW_FENCE_GATE), Ingredient.of(BOPBlocks.WILLOW_DOOR),
+                Ingredient.of(BOPBlocks.WILLOW_TRAPDOOR), Ingredient.of(BOPBlocks.WILLOW_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.WILLOW_SIGN), Ingredient.of(BOPItems.WILLOW_BOAT), Ingredient.of(BOPItems.WILLOW_CHEST_BOAT),
                 false, "willow");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.DEAD_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.DEAD_LOGS), Ingredient.of(BOPBlocks.DEAD_FENCE.get()),
-                Ingredient.of(BOPBlocks.DEAD_FENCE_GATE.get()), Ingredient.of(BOPBlocks.DEAD_DOOR.get()),
-                Ingredient.of(BOPBlocks.DEAD_TRAPDOOR.get()), Ingredient.of(BOPBlocks.DEAD_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.DEAD_SIGN.get()), Ingredient.of(BOPItems.DEAD_BOAT.get()), Ingredient.of(BOPItems.DEAD_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.DEAD_PLANKS),
+                Ingredient.of(CompatibilityItemTags.DEAD_LOGS), Ingredient.of(BOPBlocks.DEAD_FENCE),
+                Ingredient.of(BOPBlocks.DEAD_FENCE_GATE), Ingredient.of(BOPBlocks.DEAD_DOOR),
+                Ingredient.of(BOPBlocks.DEAD_TRAPDOOR), Ingredient.of(BOPBlocks.DEAD_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.DEAD_SIGN), Ingredient.of(BOPItems.DEAD_BOAT), Ingredient.of(BOPItems.DEAD_CHEST_BOAT),
                 false, "dead");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAGIC_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.MAGIC_LOGS), Ingredient.of(BOPBlocks.MAGIC_FENCE.get()),
-                Ingredient.of(BOPBlocks.MAGIC_FENCE_GATE.get()), Ingredient.of(BOPBlocks.MAGIC_DOOR.get()),
-                Ingredient.of(BOPBlocks.MAGIC_TRAPDOOR.get()), Ingredient.of(BOPBlocks.MAGIC_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.MAGIC_SIGN.get()), Ingredient.of(BOPItems.MAGIC_BOAT.get()), Ingredient.of(BOPItems.MAGIC_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.MAGIC_PLANKS),
+                Ingredient.of(CompatibilityItemTags.MAGIC_LOGS), Ingredient.of(BOPBlocks.MAGIC_FENCE),
+                Ingredient.of(BOPBlocks.MAGIC_FENCE_GATE), Ingredient.of(BOPBlocks.MAGIC_DOOR),
+                Ingredient.of(BOPBlocks.MAGIC_TRAPDOOR), Ingredient.of(BOPBlocks.MAGIC_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.MAGIC_SIGN), Ingredient.of(BOPItems.MAGIC_BOAT), Ingredient.of(BOPItems.MAGIC_CHEST_BOAT),
                 false, "magic");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.UMBRAN_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.UMBRAN_LOGS), Ingredient.of(BOPBlocks.UMBRAN_FENCE.get()),
-                Ingredient.of(BOPBlocks.UMBRAN_FENCE_GATE.get()), Ingredient.of(BOPBlocks.UMBRAN_DOOR.get()),
-                Ingredient.of(BOPBlocks.UMBRAN_TRAPDOOR.get()), Ingredient.of(BOPBlocks.UMBRAN_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.UMBRAN_SIGN.get()), Ingredient.of(BOPItems.UMBRAN_BOAT.get()), Ingredient.of(BOPItems.UMBRAN_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.UMBRAN_PLANKS),
+                Ingredient.of(CompatibilityItemTags.UMBRAN_LOGS), Ingredient.of(BOPBlocks.UMBRAN_FENCE),
+                Ingredient.of(BOPBlocks.UMBRAN_FENCE_GATE), Ingredient.of(BOPBlocks.UMBRAN_DOOR),
+                Ingredient.of(BOPBlocks.UMBRAN_TRAPDOOR), Ingredient.of(BOPBlocks.UMBRAN_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.UMBRAN_SIGN), Ingredient.of(BOPItems.UMBRAN_BOAT), Ingredient.of(BOPItems.UMBRAN_CHEST_BOAT),
                 false, "umbran");
 
-        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.HELLBARK_PLANKS.get()),
-                Ingredient.of(CompatibilityItemTags.HELLBARK_LOGS), Ingredient.of(BOPBlocks.HELLBARK_FENCE.get()),
-                Ingredient.of(BOPBlocks.HELLBARK_FENCE_GATE.get()), Ingredient.of(BOPBlocks.HELLBARK_DOOR.get()),
-                Ingredient.of(BOPBlocks.HELLBARK_TRAPDOOR.get()), Ingredient.of(BOPBlocks.HELLBARK_PRESSURE_PLATE.get()),
-                Ingredient.of(BOPItems.HELLBARK_SIGN.get()), Ingredient.of(BOPItems.HELLBARK_BOAT.get()), Ingredient.of(BOPItems.HELLBARK_CHEST_BOAT.get()),
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPBlocks.HELLBARK_PLANKS),
+                Ingredient.of(CompatibilityItemTags.HELLBARK_LOGS), Ingredient.of(BOPBlocks.HELLBARK_FENCE),
+                Ingredient.of(BOPBlocks.HELLBARK_FENCE_GATE), Ingredient.of(BOPBlocks.HELLBARK_DOOR),
+                Ingredient.of(BOPBlocks.HELLBARK_TRAPDOOR), Ingredient.of(BOPBlocks.HELLBARK_PRESSURE_PLATE),
+                Ingredient.of(BOPItems.HELLBARK_SIGN), Ingredient.of(BOPItems.HELLBARK_BOAT), Ingredient.of(BOPItems.HELLBARK_CHEST_BOAT),
                 false, "hellbark");
     }
 
     private void buildPlantGrowthChamberRecipes(Consumer<FinishedRecipe> output) {
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.VIOLET.get(), "violet");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.LAVENDER.get(), "lavender");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.ORANGE_COSMOS.get(), "orange_cosmos");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_DAFFODIL.get(), "pink_daffodil");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_HIBISCUS.get(), "pink_hibiscus");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.VIOLET, "violet");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.LAVENDER, "lavender");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ORANGE_COSMOS, "orange_cosmos");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_DAFFODIL, "pink_daffodil");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.PINK_HIBISCUS, "pink_hibiscus");
 
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.ROSE.get(), "rose");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ROSE, "rose");
 
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.TALL_LAVENDER.get(), "tall_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.BLUE_HYDRANGEA.get(), "blue_hydrangea");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.GOLDENROD.get(), "goldenrod");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.ICY_IRIS.get(), "icy_iris");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.GLOWFLOWER.get(), "glowflower");
-        addBasicFlowerGrowingRecipe(output, BOPBlocks.WILTED_LILY.get(), "wilted_liliy");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.TALL_LAVENDER, "tall_lavender");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.BLUE_HYDRANGEA, "blue_hydrangea");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.GOLDENROD, "goldenrod");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.ICY_IRIS, "icy_iris");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.GLOWFLOWER, "glowflower");
+        addBasicFlowerGrowingRecipe(output, BOPBlocks.WILTED_LILY, "wilted_liliy");
 
-        addBasicMushroomsGrowingRecipe(output, BOPBlocks.TOADSTOOL.get(), "toadstool");
+        addBasicMushroomsGrowingRecipe(output, BOPBlocks.TOADSTOOL, "toadstool");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WILDFLOWER.get()), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WILDFLOWER.get()), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WILDFLOWER), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WILDFLOWER), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "wildflower", "wildflower");
 
-        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WHITE_PETALS.get()), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WHITE_PETALS.get()), new double[] {
+        addPlantGrowthChamberRecipe(output, Ingredient.of(BOPBlocks.WHITE_PETALS), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPBlocks.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, 16000, "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes(Consumer<FinishedRecipe> output) {
-        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK.get()),
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK.get()), new double[] {
+        addCrystalGrowthChamberRecipe(output, Ingredient.of(BOPItems.ROSE_QUARTZ_CHUNK),
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }

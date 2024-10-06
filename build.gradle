@@ -173,7 +173,7 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
@@ -183,10 +183,11 @@ dependencies {
     localRuntime fg.deobf("curse.maven:energized-power-782147:5746760")
 
     // Biomes O' Plenty integration
-    compileOnly fg.deobf("curse.maven:biomes-o-plenty-220318:4764804")
+    compileOnly fg.deobf("curse.maven:biomes-o-plenty-220318:5773031")
 
-    localRuntime fg.deobf("curse.maven:biomes-o-plenty-220318:4764804")
-    localRuntime fg.deobf("curse.maven:terrablender-563928:5068218")
+    localRuntime fg.deobf("curse.maven:biomes-o-plenty-220318:5773031")
+    localRuntime fg.deobf("curse.maven:glitchcore-955399:5772820")
+    localRuntime fg.deobf("curse.maven:terrablender-563928:5378180")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
