@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:maple_trapdoor"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:maple_planks"
+  },
+  "sawdustAmount": 3
+}

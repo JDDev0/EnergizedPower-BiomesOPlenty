@@ -1,0 +1,11 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": {
+    "item": "biomesoplenty:empyreal_sign"
+  },
+  "output": {
+    "count": 2,
+    "item": "biomesoplenty:empyreal_planks"
+  },
+  "sawdustAmount": 1
+}
