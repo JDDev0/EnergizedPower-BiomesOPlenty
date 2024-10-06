@@ -3,6 +3,7 @@
   "ingredient": {
     "item": "biomesoplenty:rose_quartz_chunk"
   },
+  "inputCount": 1,
   "output": {
     "output": {
       "item": "biomesoplenty:rose_quartz_chunk"

@@ -3,36 +3,39 @@ package me.jddev0.epbop.datagen;
 import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
+import me.jddev0.ep.datagen.recipe.CrusherFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.CrystalGrowthChamberFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.PlantGrowthChamberFinishedRecipe;
+import me.jddev0.ep.datagen.recipe.SawmillFinishedRecipe;
 import me.jddev0.ep.recipe.*;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookupProvider) {
-        super(output, lookupProvider);
+    public ModRecipeProvider(FabricDataOutput output) {
+        super(output);
     }
 
     @Override
-    public void generate(RecipeExporter output) {
+    public void generate(Consumer<RecipeJsonProvider> output) {
         buildCrusherRecipes(output);
         buildSawmillRecipes(output);
         buildPlantGrowthChamberRecipes(output);
         buildCrystalGrowthChamberRecipes(output);
     }
 
-    private void buildCrusherRecipes(RecipeExporter output) {
+    private void buildCrusherRecipes(Consumer<RecipeJsonProvider> output) {
         addCrusherRecipe(output, Ingredient.ofItems(BOPItems.WHITE_SANDSTONE), new ItemStack(BOPItems.WHITE_SAND),
                 "white_sandstone");
         addCrusherRecipe(output, Ingredient.ofItems(BOPItems.SMOOTH_WHITE_SANDSTONE, BOPItems.CUT_WHITE_SANDSTONE,
@@ -56,7 +59,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 "brimstone_variants");
     }
 
-    private void buildSawmillRecipes(RecipeExporter output) {
+    private void buildSawmillRecipes(Consumer<RecipeJsonProvider> output) {
         addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.FIR_PLANKS),
                 Ingredient.fromTag(ModTags.Items.FIR_LOGS), Ingredient.ofItems(BOPItems.FIR_FENCE),
                 Ingredient.ofItems(BOPItems.FIR_FENCE_GATE), Ingredient.ofItems(BOPItems.FIR_DOOR),
@@ -149,7 +152,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 false, "empyreal");
     }
 
-    private void buildPlantGrowthChamberRecipes(RecipeExporter output) {
+    private void buildPlantGrowthChamberRecipes(Consumer<RecipeJsonProvider> output) {
         addBasicFlowerGrowingRecipe(output, BOPItems.VIOLET, "violet");
         addBasicFlowerGrowingRecipe(output, BOPItems.LAVENDER, "lavender");
         addBasicFlowerGrowingRecipe(output, BOPItems.WHITE_LAVENDER, "white_lavender");
@@ -182,108 +185,120 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }, 16000, "white_petals", "white_petals");
     }
 
-    private void buildCrystalGrowthChamberRecipes(RecipeExporter output) {
+    private void buildCrystalGrowthChamberRecipes(Consumer<RecipeJsonProvider> output) {
         addCrystalGrowthChamberRecipe(output, Ingredient.ofItems(BOPItems.ROSE_QUARTZ_CHUNK),
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.ROSE_QUARTZ_CHUNK), new double[] {
                         1., 1., .67, .5, .25, .125
                 }), 16000);
     }
 
-    private void addCrusherRecipe(RecipeExporter RecipeExporter, Ingredient input, ItemStack output,
+    private void addCrusherRecipe(Consumer<RecipeJsonProvider> recipeExporter, Ingredient input, ItemStack output,
                                   String recipeIngredientName) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
                 getItemPath(output.getItem()) + "_from_crushing_" + recipeIngredientName);
 
-        CrusherRecipe recipe = new CrusherRecipe(output, input);
-        RecipeExporter.accept(recipeId, recipe, null);
+        CrusherFinishedRecipe recipe = new CrusherFinishedRecipe(
+                recipeId,
+                output, input
+        );
+        recipeExporter.accept(recipe);
     }
 
-    private void addBasicWoodSawmillRecipe(RecipeExporter RecipeExporter, ItemStack planksItem,
+    private void addBasicWoodSawmillRecipe(Consumer<RecipeJsonProvider> recipeExporter, ItemStack planksItem,
                                            Ingredient logsInput, Ingredient fenceInput, Ingredient fenceGateInput,
                                            Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                            Ingredient signInput, Ingredient boatInput, Ingredient chestBoatInput,
                                            boolean isRaft, String woodName) {
-        addSawmillRecipe(RecipeExporter, logsInput, planksItem.copyWithCount(6), 1, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, logsInput, planksItem.copyWithCount(6), 1, getItemPath(planksItem.getItem()),
                 woodName + "_logs");
 
-        addBasicWoodWithoutLogsSawmillRecipe(RecipeExporter, planksItem, fenceInput, fenceGateInput, doorInput, trapdoorInput,
+        addBasicWoodWithoutLogsSawmillRecipe(recipeExporter, planksItem, fenceInput, fenceGateInput, doorInput, trapdoorInput,
                 pressurePlateInput, signInput, boatInput, chestBoatInput, isRaft, woodName);
     }
-    private void addBasicWoodWithoutLogsSawmillRecipe(RecipeExporter RecipeExporter, ItemStack planksItem,
+    private void addBasicWoodWithoutLogsSawmillRecipe(Consumer<RecipeJsonProvider> recipeExporter, ItemStack planksItem,
                                                       Ingredient fenceInput, Ingredient fenceGateInput,
                                                       Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                       Ingredient signInput, Ingredient boatInput, Ingredient chestBoatInput,
                                                       boolean isRaft, String woodName) {
-        addBasicWoodWithoutLogsAndBoatsSawmillRecipe(RecipeExporter, planksItem, fenceInput, fenceGateInput, doorInput,
+        addBasicWoodWithoutLogsAndBoatsSawmillRecipe(recipeExporter, planksItem, fenceInput, fenceGateInput, doorInput,
                 trapdoorInput, pressurePlateInput, signInput, woodName);
 
-        addSawmillRecipe(RecipeExporter, boatInput, planksItem.copyWithCount(4), 3, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, boatInput, planksItem.copyWithCount(4), 3, getItemPath(planksItem.getItem()),
                 woodName + (isRaft?"_raft":"_boat"));
-        addSawmillRecipe(RecipeExporter, chestBoatInput, planksItem.copyWithCount(5), 7, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, chestBoatInput, planksItem.copyWithCount(5), 7, getItemPath(planksItem.getItem()),
                 woodName + (isRaft?"_chest_raft":"_chest_boat"));
     }
-    private void addBasicWoodWithoutLogsAndBoatsSawmillRecipe(RecipeExporter RecipeExporter, ItemStack planksItem,
+    private void addBasicWoodWithoutLogsAndBoatsSawmillRecipe(Consumer<RecipeJsonProvider> recipeExporter, ItemStack planksItem,
                                                               Ingredient fenceInput, Ingredient fenceGateInput,
                                                               Ingredient doorInput, Ingredient trapdoorInput, Ingredient pressurePlateInput,
                                                               Ingredient signInput, String woodName) {
-        addSawmillRecipe(RecipeExporter, fenceInput, planksItem, 2, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, fenceInput, planksItem, 2, getItemPath(planksItem.getItem()),
                 woodName + "_fence");
-        addSawmillRecipe(RecipeExporter, fenceGateInput, planksItem.copyWithCount(2), 3, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, fenceGateInput, planksItem.copyWithCount(2), 3, getItemPath(planksItem.getItem()),
                 woodName + "_fence_gate");
-        addSawmillRecipe(RecipeExporter, doorInput, planksItem, 3, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, doorInput, planksItem, 3, getItemPath(planksItem.getItem()),
                 woodName + "_door");
-        addSawmillRecipe(RecipeExporter, trapdoorInput, planksItem.copyWithCount(2), 3, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, trapdoorInput, planksItem.copyWithCount(2), 3, getItemPath(planksItem.getItem()),
                 woodName + "_trapdoor");
-        addSawmillRecipe(RecipeExporter, pressurePlateInput, planksItem, 2, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, pressurePlateInput, planksItem, 2, getItemPath(planksItem.getItem()),
                 woodName + "_pressure_plate");
-        addSawmillRecipe(RecipeExporter, signInput, planksItem.copyWithCount(2), 1, getItemPath(planksItem.getItem()),
+        addSawmillRecipe(recipeExporter, signInput, planksItem.copyWithCount(2), 1, getItemPath(planksItem.getItem()),
                 woodName + "_sign");
     }
-    private void addSawmillRecipe(RecipeExporter RecipeExporter, Ingredient input, ItemStack output,
+    private void addSawmillRecipe(Consumer<RecipeJsonProvider> recipeExporter, Ingredient input, ItemStack output,
                                   int sawdustAmount, String outputName, String recipeIngredientName) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
                 outputName + "_from_sawing_" + recipeIngredientName);
 
-        SawmillRecipe recipe = new SawmillRecipe(output, input, sawdustAmount);
-        RecipeExporter.accept(recipeId, recipe, null);
+        SawmillFinishedRecipe recipe = new SawmillFinishedRecipe(
+                recipeId,
+                output, input, sawdustAmount
+        );
+        recipeExporter.accept(recipe);
     }
 
-    private void addBasicFlowerGrowingRecipe(RecipeExporter RecipeExporter, ItemConvertible flowerItem,
+    private void addBasicFlowerGrowingRecipe(Consumer<RecipeJsonProvider> recipeExporter, ItemConvertible flowerItem,
                                              String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(flowerItem), new OutputItemStackWithPercentages[] {
+        addPlantGrowthChamberRecipe(recipeExporter, Ingredient.ofItems(flowerItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
                         1., 1., .33
                 })
         }, 16000, outputName, getItemPath(flowerItem));
     }
-    private void addBasicMushroomsGrowingRecipe(RecipeExporter RecipeExporter, ItemConvertible mushroomItem,
+    private void addBasicMushroomsGrowingRecipe(Consumer<RecipeJsonProvider> recipeExporter, ItemConvertible mushroomItem,
                                                 String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.ofItems(mushroomItem), new OutputItemStackWithPercentages[] {
+        addPlantGrowthChamberRecipe(recipeExporter, Ingredient.ofItems(mushroomItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
                         1., 1., .5, .25
                 })
         }, 16000, outputName, getItemPath(mushroomItem));
     }
-    private void addPlantGrowthChamberRecipe(RecipeExporter RecipeExporter, Ingredient input,
+    private void addPlantGrowthChamberRecipe(Consumer<RecipeJsonProvider> recipeExporter, Ingredient input,
                                              OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
-        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
-        RecipeExporter.accept(recipeId, recipe, null);
+        PlantGrowthChamberFinishedRecipe recipe = new PlantGrowthChamberFinishedRecipe(
+                recipeId,
+                outputs, input, ticks
+        );
+        recipeExporter.accept(recipe);
     }
 
-    private void addCrystalGrowthChamberRecipe(RecipeExporter RecipeExporter, Ingredient input, OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(Consumer<RecipeJsonProvider> recipeExporter, Ingredient input, OutputItemStackWithPercentages output,
                                                int ticks) {
-        addCrystalGrowthChamberRecipe(RecipeExporter, input, output, 1, ticks);
+        addCrystalGrowthChamberRecipe(recipeExporter, input, output, 1, ticks);
     }
-    private void addCrystalGrowthChamberRecipe(RecipeExporter recipeExporter, Ingredient input, OutputItemStackWithPercentages output,
+    private void addCrystalGrowthChamberRecipe(Consumer<RecipeJsonProvider> recipeExporter, Ingredient input, OutputItemStackWithPercentages output,
                                                int inputCount, int ticks) {
         Identifier recipeId = Identifier.of(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemPath(output.output().getItem()));
 
-        CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, inputCount, ticks);
-        recipeExporter.accept(recipeId, recipe, null);
+        CrystalGrowthChamberFinishedRecipe recipe = new CrystalGrowthChamberFinishedRecipe(
+                recipeId,
+                output, input, inputCount, ticks
+        );
+        recipeExporter.accept(recipe);
     }
 }
