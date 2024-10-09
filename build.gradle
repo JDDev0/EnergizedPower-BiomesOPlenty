@@ -79,9 +79,9 @@ dependencies {
     }
 
     // Energized Power dependency
-    modCompileOnly "curse.maven:energized-power-782147:5746737"
+    modCompileOnly "curse.maven:energized-power-782147:5797537"
 
-    modLocalRuntime "curse.maven:energized-power-782147:5746737"
+    modLocalRuntime "curse.maven:energized-power-782147:5797537"
 
     // Biomes O' Plenty integration
     modCompileOnly "curse.maven:biomes-o-plenty-220318:5726210"
