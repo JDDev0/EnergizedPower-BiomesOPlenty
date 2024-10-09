@@ -178,9 +178,9 @@ dependencies {
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
     // Energized Power dependency
-    compileOnly fg.deobf("curse.maven:energized-power-782147:5746770")
+    compileOnly fg.deobf("curse.maven:energized-power-782147:5797559")
 
-    localRuntime fg.deobf("curse.maven:energized-power-782147:5746770")
+    localRuntime fg.deobf("curse.maven:energized-power-782147:5797559")
 
     // Biomes O' Plenty integration
     compileOnly fg.deobf("curse.maven:biomes-o-plenty-220318:4918981")
