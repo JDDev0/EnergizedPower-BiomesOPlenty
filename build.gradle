@@ -153,9 +153,9 @@ dependencies {
     localRuntime "curse.maven:energized-power-782147:5797585"
 
     // Biomes O' Plenty integration
-    compileOnly "curse.maven:biomes-o-plenty-220318:5812716"
+    compileOnly "curse.maven:biomes-o-plenty-220318:5855568"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:5812716"
+    localRuntime "curse.maven:biomes-o-plenty-220318:5855568"
     localRuntime "curse.maven:glitchcore-955399:5660740"
     localRuntime "curse.maven:terrablender-neoforge-940057:5685546"
 
