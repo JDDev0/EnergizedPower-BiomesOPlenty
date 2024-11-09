@@ -157,7 +157,7 @@ dependencies {
 
     localRuntime "curse.maven:biomes-o-plenty-220318:5855568"
     localRuntime "curse.maven:glitchcore-955399:5660740"
-    localRuntime "curse.maven:terrablender-neoforge-940057:5685546"
+    localRuntime "curse.maven:terrablender-neoforge-940057:5864140"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
