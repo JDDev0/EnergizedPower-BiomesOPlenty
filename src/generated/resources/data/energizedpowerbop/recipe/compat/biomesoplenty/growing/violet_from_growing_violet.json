@@ -1,18 +1,17 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:violet"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:violet",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:violet"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:violet"
+      }
     }
   ],
   "ticks": 16000

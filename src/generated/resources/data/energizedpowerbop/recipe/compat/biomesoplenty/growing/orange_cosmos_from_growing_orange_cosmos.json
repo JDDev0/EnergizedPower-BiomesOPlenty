@@ -1,18 +1,17 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:orange_cosmos"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:orange_cosmos",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:orange_cosmos"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:orange_cosmos"
+      }
     }
   ],
   "ticks": 16000

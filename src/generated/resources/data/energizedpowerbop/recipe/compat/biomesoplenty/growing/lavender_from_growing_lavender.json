@@ -1,18 +1,17 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:lavender"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:lavender",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:lavender"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:lavender"
+      }
     }
   ],
   "ticks": 16000

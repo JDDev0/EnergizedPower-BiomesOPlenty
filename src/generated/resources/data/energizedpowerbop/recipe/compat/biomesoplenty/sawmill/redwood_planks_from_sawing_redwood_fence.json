@@ -1,10 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:redwood_fence"
-  },
-  "output": {
-    "item": "biomesoplenty:redwood_planks"
+  "ingredient": "biomesoplenty:redwood_fence",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:redwood_planks"
   },
   "sawdustAmount": 2
 }

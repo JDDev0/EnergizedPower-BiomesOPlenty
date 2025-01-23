@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.8-SNAPSHOT'
     id 'maven-publish'
 
 }
@@ -45,10 +45,6 @@ repositories {
     }
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/energizedpowerbop.accesswidener")
-}
-
 fabricApi {
     configureDataGeneration {
         getOutputDirectory().set(getProject().file("src/generated/resources"))
@@ -79,24 +75,25 @@ dependencies {
     }
 
     // Energized Power dependency
-    modCompileOnly "curse.maven:energized-power-782147:5797537"
+    modCompileOnly "curse.maven:energized-power-782147:6103919"
 
-    modLocalRuntime "curse.maven:energized-power-782147:5797537"
+    modLocalRuntime "curse.maven:energized-power-782147:6103919"
 
     // Biomes O' Plenty integration
-    modCompileOnly "curse.maven:biomes-o-plenty-220318:5726210"
+    modCompileOnly "curse.maven:biomes-o-plenty-220318:5997673"
 
-    modLocalRuntime "curse.maven:biomes-o-plenty-220318:5726210"
+    modLocalRuntime "curse.maven:biomes-o-plenty-220318:5997673"
     modLocalRuntime "net.jodah:typetools:0.6.3"
     modLocalRuntime "com.electronwill.night-config:core:3.6.7"
     modLocalRuntime "com.electronwill.night-config:toml:3.6.7"
-    modLocalRuntime "curse.maven:glitchcore-955399:5660741"
-    modLocalRuntime "curse.maven:terrablender-fabric-565956:5685547"
+    modLocalRuntime "curse.maven:glitchcore-955399:5969782"
+    modLocalRuntime "curse.maven:terrablender-fabric-565956:5861338"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    modLocalRuntime "dev.emi:emi-fabric:1.1.13+1.21.1"
+    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:17.0.794"
+    //modLocalRuntime "dev.emi:emi-fabric:1.1.13+1.21.1"
 }
 
 processResources {
@@ -148,12 +145,4 @@ publishing {
 //Dummy task to fix post sync error caused by NeoGradle
 tasks.register("idePostSync") {
 
-}
-
-// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
-idea {
-    module {
-        downloadSources = true
-        downloadJavadoc = true
-    }
 }

@@ -1,10 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:empyreal_door"
-  },
-  "output": {
-    "item": "biomesoplenty:empyreal_planks"
+  "ingredient": "biomesoplenty:empyreal_door",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:empyreal_planks"
   },
   "sawdustAmount": 3
 }

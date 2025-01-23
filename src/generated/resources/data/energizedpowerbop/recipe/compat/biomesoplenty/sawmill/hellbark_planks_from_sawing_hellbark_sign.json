@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:hellbark_sign"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:hellbark_sign",
+  "result": {
     "count": 2,
-    "item": "biomesoplenty:hellbark_planks"
+    "id": "biomesoplenty:hellbark_planks"
   },
   "sawdustAmount": 1
 }

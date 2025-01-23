@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:redwood_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:redwood_boat",
+  "result": {
     "count": 4,
-    "item": "biomesoplenty:redwood_planks"
+    "id": "biomesoplenty:redwood_planks"
   },
   "sawdustAmount": 3
 }

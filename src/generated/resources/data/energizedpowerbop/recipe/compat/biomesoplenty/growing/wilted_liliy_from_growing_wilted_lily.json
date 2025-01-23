@@ -1,18 +1,17 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:wilted_lily"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:wilted_lily",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:wilted_lily"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:wilted_lily"
+      }
     }
   ],
   "ticks": 16000

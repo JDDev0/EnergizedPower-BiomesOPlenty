@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:mahogany_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:mahogany_boat",
+  "result": {
     "count": 4,
-    "item": "biomesoplenty:mahogany_planks"
+    "id": "biomesoplenty:mahogany_planks"
   },
   "sawdustAmount": 3
 }

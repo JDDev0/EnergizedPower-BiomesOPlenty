@@ -1,10 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:willow_door"
-  },
-  "output": {
-    "item": "biomesoplenty:willow_planks"
+  "ingredient": "biomesoplenty:willow_door",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:willow_planks"
   },
   "sawdustAmount": 3
 }

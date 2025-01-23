@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:dead_chest_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:dead_chest_boat",
+  "result": {
     "count": 5,
-    "item": "biomesoplenty:dead_planks"
+    "id": "biomesoplenty:dead_planks"
   },
   "sawdustAmount": 7
 }

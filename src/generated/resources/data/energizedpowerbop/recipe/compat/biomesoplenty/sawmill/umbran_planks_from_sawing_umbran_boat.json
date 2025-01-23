@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:umbran_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:umbran_boat",
+  "result": {
     "count": 4,
-    "item": "biomesoplenty:umbran_planks"
+    "id": "biomesoplenty:umbran_planks"
   },
   "sawdustAmount": 3
 }

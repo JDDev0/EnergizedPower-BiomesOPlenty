@@ -1,10 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:pine_pressure_plate"
-  },
-  "output": {
-    "item": "biomesoplenty:pine_planks"
+  "ingredient": "biomesoplenty:pine_pressure_plate",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:pine_planks"
   },
   "sawdustAmount": 2
 }

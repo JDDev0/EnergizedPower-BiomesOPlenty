@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "tag": "biomesoplenty:magic_logs"
-  },
-  "output": {
+  "ingredient": "#biomesoplenty:magic_logs",
+  "result": {
     "count": 6,
-    "item": "biomesoplenty:magic_planks"
+    "id": "biomesoplenty:magic_planks"
   },
   "sawdustAmount": 1
 }

@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:fir_trapdoor"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:fir_trapdoor",
+  "result": {
     "count": 2,
-    "item": "biomesoplenty:fir_planks"
+    "id": "biomesoplenty:fir_planks"
   },
   "sawdustAmount": 3
 }

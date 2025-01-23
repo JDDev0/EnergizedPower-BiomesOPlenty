@@ -1,9 +1,8 @@
 {
   "type": "energizedpower:crusher",
-  "ingredient": {
-    "item": "biomesoplenty:black_sandstone"
-  },
-  "output": {
-    "item": "biomesoplenty:black_sand"
+  "ingredient": "biomesoplenty:black_sandstone",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:black_sand"
   }
 }

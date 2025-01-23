@@ -1,13 +1,8 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:wildflower"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:wildflower",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:wildflower"
-      },
       "percentages": [
         1.0,
         1.0,
@@ -16,7 +11,11 @@
         0.33,
         0.33,
         0.15
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:wildflower"
+      }
     }
   ],
   "ticks": 16000

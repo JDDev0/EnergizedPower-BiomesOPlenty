@@ -1,11 +1,9 @@
 {
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "tag": "biomesoplenty:pine_logs"
-  },
-  "output": {
+  "ingredient": "#biomesoplenty:pine_logs",
+  "result": {
     "count": 6,
-    "item": "biomesoplenty:pine_planks"
+    "id": "biomesoplenty:pine_planks"
   },
   "sawdustAmount": 1
 }
