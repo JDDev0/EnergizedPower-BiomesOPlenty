@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:icy_iris"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:icy_iris",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:icy_iris"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:icy_iris"
+      }
     }
   ],
   "ticks": 16000

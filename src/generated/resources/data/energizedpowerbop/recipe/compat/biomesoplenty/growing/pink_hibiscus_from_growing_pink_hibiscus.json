@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:pink_hibiscus"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:pink_hibiscus",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:pink_hibiscus"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:pink_hibiscus"
+      }
     }
   ],
   "ticks": 16000

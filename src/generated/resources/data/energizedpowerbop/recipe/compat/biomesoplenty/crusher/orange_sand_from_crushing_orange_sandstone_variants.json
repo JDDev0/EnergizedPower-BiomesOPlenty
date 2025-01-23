@@ -7,17 +7,12 @@
   ],
   "type": "energizedpower:crusher",
   "ingredient": [
-    {
-      "item": "biomesoplenty:smooth_orange_sandstone"
-    },
-    {
-      "item": "biomesoplenty:cut_orange_sandstone"
-    },
-    {
-      "item": "biomesoplenty:chiseled_orange_sandstone"
-    }
+    "biomesoplenty:smooth_orange_sandstone",
+    "biomesoplenty:cut_orange_sandstone",
+    "biomesoplenty:chiseled_orange_sandstone"
   ],
-  "output": {
-    "item": "biomesoplenty:orange_sand"
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:orange_sand"
   }
 }

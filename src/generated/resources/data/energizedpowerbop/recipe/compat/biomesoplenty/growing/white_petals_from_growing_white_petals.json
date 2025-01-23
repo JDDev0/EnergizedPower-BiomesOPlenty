@@ -6,14 +6,9 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:white_petals"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:white_petals",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:white_petals"
-      },
       "percentages": [
         1.0,
         1.0,
@@ -22,7 +17,11 @@
         0.33,
         0.33,
         0.15
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:white_petals"
+      }
     }
   ],
   "ticks": 16000

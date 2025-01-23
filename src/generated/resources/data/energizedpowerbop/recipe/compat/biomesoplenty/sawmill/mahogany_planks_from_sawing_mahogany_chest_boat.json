@@ -6,12 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:mahogany_chest_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:mahogany_chest_boat",
+  "result": {
     "count": 5,
-    "item": "biomesoplenty:mahogany_planks"
+    "id": "biomesoplenty:mahogany_planks"
   },
   "sawdustAmount": 7
 }

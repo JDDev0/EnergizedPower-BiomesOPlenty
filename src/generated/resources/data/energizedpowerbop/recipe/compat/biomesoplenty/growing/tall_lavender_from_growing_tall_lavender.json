@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:tall_lavender"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:tall_lavender",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:tall_lavender"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:tall_lavender"
+      }
     }
   ],
   "ticks": 16000

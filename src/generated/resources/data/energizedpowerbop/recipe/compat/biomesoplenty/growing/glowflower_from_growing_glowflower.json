@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:glowflower"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:glowflower",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:glowflower"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:glowflower"
+      }
     }
   ],
   "ticks": 16000

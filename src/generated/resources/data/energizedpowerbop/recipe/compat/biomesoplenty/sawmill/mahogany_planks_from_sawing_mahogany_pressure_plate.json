@@ -6,11 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:mahogany_pressure_plate"
-  },
-  "output": {
-    "item": "biomesoplenty:mahogany_planks"
+  "ingredient": "biomesoplenty:mahogany_pressure_plate",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:mahogany_planks"
   },
   "sawdustAmount": 2
 }

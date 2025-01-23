@@ -6,12 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "tag": "biomesoplenty:empyreal_logs"
-  },
-  "output": {
+  "ingredient": "#biomesoplenty:empyreal_logs",
+  "result": {
     "count": 6,
-    "item": "biomesoplenty:empyreal_planks"
+    "id": "biomesoplenty:empyreal_planks"
   },
   "sawdustAmount": 1
 }

@@ -6,12 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:palm_sign"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:palm_sign",
+  "result": {
     "count": 2,
-    "item": "biomesoplenty:palm_planks"
+    "id": "biomesoplenty:palm_planks"
   },
   "sawdustAmount": 1
 }

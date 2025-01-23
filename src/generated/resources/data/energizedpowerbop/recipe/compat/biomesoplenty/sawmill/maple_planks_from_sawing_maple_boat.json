@@ -6,12 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:maple_boat"
-  },
-  "output": {
+  "ingredient": "biomesoplenty:maple_boat",
+  "result": {
     "count": 4,
-    "item": "biomesoplenty:maple_planks"
+    "id": "biomesoplenty:maple_planks"
   },
   "sawdustAmount": 3
 }

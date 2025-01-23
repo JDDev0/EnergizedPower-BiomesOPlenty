@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:pink_daffodil"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:pink_daffodil",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:pink_daffodil"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:pink_daffodil"
+      }
     }
   ],
   "ticks": 16000

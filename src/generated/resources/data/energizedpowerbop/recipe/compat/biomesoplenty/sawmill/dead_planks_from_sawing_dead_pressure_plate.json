@@ -6,11 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:dead_pressure_plate"
-  },
-  "output": {
-    "item": "biomesoplenty:dead_planks"
+  "ingredient": "biomesoplenty:dead_pressure_plate",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:dead_planks"
   },
   "sawdustAmount": 2
 }

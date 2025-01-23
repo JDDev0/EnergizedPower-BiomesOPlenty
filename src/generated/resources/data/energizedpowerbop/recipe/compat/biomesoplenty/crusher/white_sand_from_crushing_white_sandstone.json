@@ -6,10 +6,9 @@
     }
   ],
   "type": "energizedpower:crusher",
-  "ingredient": {
-    "item": "biomesoplenty:white_sandstone"
-  },
-  "output": {
-    "item": "biomesoplenty:white_sand"
+  "ingredient": "biomesoplenty:white_sandstone",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:white_sand"
   }
 }

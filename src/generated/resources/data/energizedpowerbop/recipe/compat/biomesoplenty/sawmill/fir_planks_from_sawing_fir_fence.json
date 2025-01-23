@@ -6,11 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:fir_fence"
-  },
-  "output": {
-    "item": "biomesoplenty:fir_planks"
+  "ingredient": "biomesoplenty:fir_fence",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:fir_planks"
   },
   "sawdustAmount": 2
 }

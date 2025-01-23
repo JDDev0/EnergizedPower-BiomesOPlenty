@@ -6,11 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:palm_pressure_plate"
-  },
-  "output": {
-    "item": "biomesoplenty:palm_planks"
+  "ingredient": "biomesoplenty:palm_pressure_plate",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:palm_planks"
   },
   "sawdustAmount": 2
 }

@@ -6,19 +6,18 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": {
-    "item": "biomesoplenty:rose"
-  },
-  "outputs": [
+  "ingredient": "biomesoplenty:rose",
+  "results": [
     {
-      "output": {
-        "item": "biomesoplenty:rose"
-      },
       "percentages": [
         1.0,
         1.0,
         0.33
-      ]
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:rose"
+      }
     }
   ],
   "ticks": 16000

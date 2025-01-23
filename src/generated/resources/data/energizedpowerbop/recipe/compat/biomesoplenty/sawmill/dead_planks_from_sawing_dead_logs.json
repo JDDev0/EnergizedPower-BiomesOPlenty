@@ -6,12 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "tag": "biomesoplenty:dead_logs"
-  },
-  "output": {
+  "ingredient": "#biomesoplenty:dead_logs",
+  "result": {
     "count": 6,
-    "item": "biomesoplenty:dead_planks"
+    "id": "biomesoplenty:dead_planks"
   },
   "sawdustAmount": 1
 }

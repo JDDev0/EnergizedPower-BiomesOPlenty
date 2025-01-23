@@ -6,11 +6,10 @@
     }
   ],
   "type": "energizedpower:sawmill",
-  "ingredient": {
-    "item": "biomesoplenty:umbran_fence"
-  },
-  "output": {
-    "item": "biomesoplenty:umbran_planks"
+  "ingredient": "biomesoplenty:umbran_fence",
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:umbran_planks"
   },
   "sawdustAmount": 2
 }
