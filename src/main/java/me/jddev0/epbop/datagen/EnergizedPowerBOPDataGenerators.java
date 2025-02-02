@@ -13,12 +13,12 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = EnergizedPowerBOPMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class EnergizedPowerBOPDataGenerators {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
 
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider));
+        generator.addProvider(true, new ModRecipeProvider(output, lookupProvider));
     }
 }

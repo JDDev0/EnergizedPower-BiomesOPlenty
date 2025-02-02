@@ -17,9 +17,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.conditions.NeoForgeConditions;
 
-public class ModRecipeGenerator extends RecipeProvider implements IConditionBuilder {
+public class ModRecipeGenerator extends RecipeProvider {
     private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
@@ -197,7 +197,7 @@ public class ModRecipeGenerator extends RecipeProvider implements IConditionBuil
                 getItemName(output.getItem()) + "_from_crushing_" + recipeIngredientName);
 
         CrusherRecipe recipe = new CrusherRecipe(output, input);
-        recipeOutput.accept(getKey(recipeId), recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
     private void addBasicWoodSawmillRecipe(RecipeOutput recipeOutput, ItemStack planksItem,
@@ -247,7 +247,7 @@ public class ModRecipeGenerator extends RecipeProvider implements IConditionBuil
                 outputName + "_from_sawing_" + recipeIngredientName);
 
         SawmillRecipe recipe = new SawmillRecipe(output, input, sawdustAmount);
-        recipeOutput.accept(getKey(recipeId), recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
     private void addBasicFlowerGrowingRecipe(RecipeOutput recipeOutput, ItemLike flowerItem,
@@ -273,7 +273,7 @@ public class ModRecipeGenerator extends RecipeProvider implements IConditionBuil
                 outputName + "_from_growing_" + recipeIngredientName);
 
         PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
-        recipeOutput.accept(getKey(recipeId), recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
@@ -286,7 +286,7 @@ public class ModRecipeGenerator extends RecipeProvider implements IConditionBuil
                 getItemName(output.output().getItem()));
 
         CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, ticks);
-        recipeOutput.accept(getKey(recipeId), recipe, null, modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
     private Ingredient ingredientOf(ItemLike item) {

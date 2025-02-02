@@ -111,7 +111,7 @@ runs {
         systemProperty 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
     }
 
-    data {
+    clientData {
         // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
         // workingDirectory project.file('run-data')
 
@@ -148,21 +148,21 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     // Energized Power dependency
-    compileOnly "curse.maven:energized-power-782147:6114381"
+    compileOnly "curse.maven:energized-power-782147:6150511"
 
-    localRuntime "curse.maven:energized-power-782147:6114381"
+    localRuntime "curse.maven:energized-power-782147:6150511"
 
     // Biomes O' Plenty integration
-    compileOnly "curse.maven:biomes-o-plenty-220318:5997675"
+    compileOnly "curse.maven:biomes-o-plenty-220318:6083659"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:5997675"
-    localRuntime "curse.maven:glitchcore-955399:5969783"
-    localRuntime "curse.maven:terrablender-neoforge-940057:5861339"
+    localRuntime "curse.maven:biomes-o-plenty-220318:6083659"
+    localRuntime "curse.maven:glitchcore-955399:6054289"
+    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    localRuntime 'me.shedaniel:RoughlyEnoughItems-neoforge:17.0.794'
+    localRuntime 'me.shedaniel:RoughlyEnoughItems-neoforge:18.0.796'
     //localRuntime "dev.emi:emi-neoforge:1.1.18+1.21.1"
 }
 
