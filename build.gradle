@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.10-SNAPSHOT'
     id 'maven-publish'
 
 }
@@ -77,24 +77,24 @@ dependencies {
     }
 
     // Energized Power dependency
-    modCompileOnly "curse.maven:energized-power-782147:6150054"
+    modCompileOnly "curse.maven:energized-power-782147:6447322"
 
-    modLocalRuntime "curse.maven:energized-power-782147:6150054"
+    modLocalRuntime "curse.maven:energized-power-782147:6447322"
 
     // Biomes O' Plenty integration
-    modCompileOnly "curse.maven:biomes-o-plenty-220318:6083660"
+    modCompileOnly "curse.maven:biomes-o-plenty-220318:6447178"
 
-    modLocalRuntime "curse.maven:biomes-o-plenty-220318:6083660"
+    modLocalRuntime "curse.maven:biomes-o-plenty-220318:6447178"
     modLocalRuntime "net.jodah:typetools:0.6.3"
     modLocalRuntime "com.electronwill.night-config:core:3.6.7"
     modLocalRuntime "com.electronwill.night-config:toml:3.6.7"
-    modLocalRuntime "curse.maven:glitchcore-955399:6054290"
-    modLocalRuntime "curse.maven:terrablender-fabric-565956:6055020"
+    modLocalRuntime "curse.maven:glitchcore-955399:6398450"
+    modLocalRuntime "curse.maven:terrablender-fabric-565956:6465682"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:18.0.796"
+    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:19.0.806"
     //modLocalRuntime "dev.emi:emi-fabric:1.1.13+1.21.1"
 }
 

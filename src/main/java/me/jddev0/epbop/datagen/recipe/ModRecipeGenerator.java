@@ -169,11 +169,11 @@ public class ModRecipeGenerator extends RecipeGenerator {
 
         addBasicMushroomsGrowingRecipe(BOPItems.TOADSTOOL, "toadstool");
 
-        addPlantGrowthChamberRecipe(Ingredient.ofItems(BOPItems.WILDFLOWER), new OutputItemStackWithPercentages[] {
-                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
+        addPlantGrowthChamberRecipe(Ingredient.ofItems(BOPItems.PURPLE_WILDFLOWERS), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.PURPLE_WILDFLOWERS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "wildflower", "wildflower");
+        }, 16000, "purple_wildflower", "purple_wildflower");
 
         addPlantGrowthChamberRecipe(Ingredient.ofItems(BOPItems.WHITE_PETALS), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
