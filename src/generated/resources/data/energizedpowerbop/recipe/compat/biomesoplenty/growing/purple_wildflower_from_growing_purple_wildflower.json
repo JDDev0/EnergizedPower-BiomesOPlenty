@@ -6,7 +6,7 @@
     }
   ],
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": "biomesoplenty:wildflower",
+  "ingredient": "biomesoplenty:purple_wildflowers",
   "results": [
     {
       "percentages": [
@@ -20,7 +20,7 @@
       ],
       "result": {
         "count": 1,
-        "id": "biomesoplenty:wildflower"
+        "id": "biomesoplenty:purple_wildflowers"
       }
     }
   ],
