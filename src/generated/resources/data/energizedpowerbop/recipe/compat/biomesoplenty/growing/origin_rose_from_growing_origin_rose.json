@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:plant_growth_chamber",
+  "ingredient": "biomesoplenty:origin_rose",
+  "results": [
+    {
+      "percentages": [
+        1.0,
+        1.0,
+        0.33
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:origin_rose"
+      }
+    }
+  ],
+  "ticks": 16000
+}

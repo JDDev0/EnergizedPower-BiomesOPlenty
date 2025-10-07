@@ -60,6 +60,13 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
 
     private void buildSawmillRecipes(RecipeOutput output) {
+        addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.ORIGIN_OAK_PLANKS),
+                ingredientOf(ModTags.Items.ORIGIN_OAK_LOGS), ingredientOf(BOPItems.ORIGIN_OAK_FENCE),
+                ingredientOf(BOPItems.ORIGIN_OAK_FENCE_GATE), ingredientOf(BOPItems.ORIGIN_OAK_DOOR),
+                ingredientOf(BOPItems.ORIGIN_OAK_TRAPDOOR), ingredientOf(BOPItems.ORIGIN_OAK_PRESSURE_PLATE),
+                ingredientOf(BOPItems.ORIGIN_OAK_SIGN), ingredientOf(BOPItems.ORIGIN_OAK_BOAT), ingredientOf(BOPItems.ORIGIN_OAK_CHEST_BOAT),
+                false, "origin_oak");
+
         addBasicWoodSawmillRecipe(output, new ItemStack(BOPItems.FIR_PLANKS),
                 ingredientOf(ModTags.Items.FIR_LOGS), ingredientOf(BOPItems.FIR_FENCE),
                 ingredientOf(BOPItems.FIR_FENCE_GATE), ingredientOf(BOPItems.FIR_DOOR),
@@ -153,6 +160,7 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
 
     private void buildPlantGrowthChamberRecipes(RecipeOutput output) {
+        addBasicFlowerGrowingRecipe(output, BOPItems.MARIGOLD, "marigold");
         addBasicFlowerGrowingRecipe(output, BOPItems.VIOLET, "violet");
         addBasicFlowerGrowingRecipe(output, BOPItems.LAVENDER, "lavender");
         addBasicFlowerGrowingRecipe(output, BOPItems.WHITE_LAVENDER, "white_lavender");
@@ -160,7 +168,7 @@ public class ModRecipeGenerator extends RecipeProvider {
         addBasicFlowerGrowingRecipe(output, BOPItems.PINK_DAFFODIL, "pink_daffodil");
         addBasicFlowerGrowingRecipe(output, BOPItems.PINK_HIBISCUS, "pink_hibiscus");
 
-        addBasicFlowerGrowingRecipe(output, BOPItems.ROSE, "rose");
+        addBasicFlowerGrowingRecipe(output, BOPItems.ORIGIN_ROSE, "origin_rose");
 
         addBasicFlowerGrowingRecipe(output, BOPItems.TALL_LAVENDER, "tall_lavender");
         addBasicFlowerGrowingRecipe(output, BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");
