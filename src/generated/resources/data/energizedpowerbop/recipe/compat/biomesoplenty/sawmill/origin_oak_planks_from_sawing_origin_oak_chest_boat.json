@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": "biomesoplenty:origin_oak_chest_boat",
+  "result": {
+    "count": 5,
+    "id": "biomesoplenty:origin_oak_planks"
+  },
+  "sawdustAmount": 7
+}

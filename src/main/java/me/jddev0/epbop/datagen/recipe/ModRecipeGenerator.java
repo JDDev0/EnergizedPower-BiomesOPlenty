@@ -57,6 +57,13 @@ public class ModRecipeGenerator extends RecipeGenerator {
     }
 
     private void buildSawmillRecipes() {
+        addBasicWoodSawmillRecipe(new ItemStack(BOPItems.ORIGIN_OAK_PLANKS),
+                ingredientFromTag(ModTags.Items.ORIGIN_OAK_LOGS), Ingredient.ofItems(BOPItems.ORIGIN_OAK_FENCE),
+                Ingredient.ofItems(BOPItems.ORIGIN_OAK_FENCE_GATE), Ingredient.ofItems(BOPItems.ORIGIN_OAK_DOOR),
+                Ingredient.ofItems(BOPItems.ORIGIN_OAK_TRAPDOOR), Ingredient.ofItems(BOPItems.ORIGIN_OAK_PRESSURE_PLATE),
+                Ingredient.ofItems(BOPItems.ORIGIN_OAK_SIGN), Ingredient.ofItems(BOPItems.ORIGIN_OAK_BOAT), Ingredient.ofItems(BOPItems.ORIGIN_OAK_CHEST_BOAT),
+                false, "origin_oak");
+
         addBasicWoodSawmillRecipe(new ItemStack(BOPItems.FIR_PLANKS),
                 ingredientFromTag(ModTags.Items.FIR_LOGS), Ingredient.ofItems(BOPItems.FIR_FENCE),
                 Ingredient.ofItems(BOPItems.FIR_FENCE_GATE), Ingredient.ofItems(BOPItems.FIR_DOOR),
@@ -150,6 +157,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
     }
 
     private void buildPlantGrowthChamberRecipes() {
+        addBasicFlowerGrowingRecipe(BOPItems.MARIGOLD, "marigold");
         addBasicFlowerGrowingRecipe(BOPItems.VIOLET, "violet");
         addBasicFlowerGrowingRecipe(BOPItems.LAVENDER, "lavender");
         addBasicFlowerGrowingRecipe(BOPItems.WHITE_LAVENDER, "white_lavender");
@@ -157,7 +165,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
         addBasicFlowerGrowingRecipe(BOPItems.PINK_DAFFODIL, "pink_daffodil");
         addBasicFlowerGrowingRecipe(BOPItems.PINK_HIBISCUS, "pink_hibiscus");
 
-        addBasicFlowerGrowingRecipe(BOPItems.ROSE, "rose");
+        addBasicFlowerGrowingRecipe(BOPItems.ORIGIN_ROSE, "origin_rose");
 
         addBasicFlowerGrowingRecipe(BOPItems.TALL_LAVENDER, "tall_lavender");
         addBasicFlowerGrowingRecipe(BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");

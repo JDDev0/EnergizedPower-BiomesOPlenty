@@ -1,0 +1,18 @@
+{
+  "type": "energizedpower:plant_growth_chamber",
+  "ingredient": "biomesoplenty:marigold",
+  "results": [
+    {
+      "percentages": [
+        1.0,
+        1.0,
+        0.33
+      ],
+      "result": {
+        "count": 1,
+        "id": "biomesoplenty:marigold"
+      }
+    }
+  ],
+  "ticks": 16000
+}

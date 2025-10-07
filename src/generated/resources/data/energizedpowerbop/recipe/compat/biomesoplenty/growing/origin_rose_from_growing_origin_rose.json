@@ -1,6 +1,6 @@
 {
   "type": "energizedpower:plant_growth_chamber",
-  "ingredient": "biomesoplenty:rose",
+  "ingredient": "biomesoplenty:origin_rose",
   "results": [
     {
       "percentages": [
@@ -10,7 +10,7 @@
       ],
       "result": {
         "count": 1,
-        "id": "biomesoplenty:rose"
+        "id": "biomesoplenty:origin_rose"
       }
     }
   ],
