@@ -159,16 +159,16 @@ dependencies {
     localRuntime "curse.maven:energized-power-782147:7084209"
 
     // Biomes O' Plenty integration
-    compileOnly "curse.maven:biomes-o-plenty-220318:7098694"
+    compileOnly "curse.maven:biomes-o-plenty-220318:7155139"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:7098694"
-    localRuntime "curse.maven:glitchcore-955399:7098531"
+    localRuntime "curse.maven:biomes-o-plenty-220318:7155139"
+    localRuntime "curse.maven:glitchcore-955399:7155115"
     localRuntime "curse.maven:terrablender-neoforge-940057:7098524"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    localRuntime "mezz.jei:jei-1.21.10-neoforge:26.0.0.1"
+    localRuntime "mezz.jei:jei-1.21.10-neoforge:26.0.0.4"
     //localRuntime "me.shedaniel:RoughlyEnoughItems-neoforge:20.0.811"
     //localRuntime "dev.emi:emi-neoforge:1.1.18+1.21.1"
 }
