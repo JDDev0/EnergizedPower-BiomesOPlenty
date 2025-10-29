@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": "biomesoplenty:willow_shelf",
+  "result": {
+    "count": 3,
+    "id": "biomesoplenty:willow_planks"
+  },
+  "sawdustAmount": 1
+}

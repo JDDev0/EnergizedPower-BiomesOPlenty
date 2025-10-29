@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": "biomesoplenty:jacaranda_shelf",
+  "result": {
+    "count": 3,
+    "id": "biomesoplenty:jacaranda_planks"
+  },
+  "sawdustAmount": 1
+}

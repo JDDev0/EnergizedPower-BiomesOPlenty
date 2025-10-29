@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": "biomesoplenty:empyreal_shelf",
+  "result": {
+    "count": 3,
+    "id": "biomesoplenty:empyreal_planks"
+  },
+  "sawdustAmount": 1
+}

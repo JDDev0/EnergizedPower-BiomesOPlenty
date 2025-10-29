@@ -1,0 +1,9 @@
+{
+  "type": "energizedpower:sawmill",
+  "ingredient": "biomesoplenty:redwood_shelf",
+  "result": {
+    "count": 3,
+    "id": "biomesoplenty:redwood_planks"
+  },
+  "sawdustAmount": 1
+}
