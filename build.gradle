@@ -82,13 +82,13 @@ dependencies {
     modLocalRuntime "curse.maven:energized-power-782147:7078194"
 
     // Biomes O' Plenty integration
-    modCompileOnly "curse.maven:biomes-o-plenty-220318:7098693"
+    modCompileOnly "curse.maven:biomes-o-plenty-220318:7155140"
 
-    modLocalRuntime "curse.maven:biomes-o-plenty-220318:7098693"
+    modLocalRuntime "curse.maven:biomes-o-plenty-220318:7155140"
     modLocalRuntime "net.jodah:typetools:0.6.3"
     modLocalRuntime "com.electronwill.night-config:core:3.6.7"
     modLocalRuntime "com.electronwill.night-config:toml:3.6.7"
-    modLocalRuntime "curse.maven:glitchcore-955399:7098530"
+    modLocalRuntime "curse.maven:glitchcore-955399:7155114"
     modLocalRuntime "curse.maven:terrablender-fabric-565956:7098525"
 
     // For more info...
