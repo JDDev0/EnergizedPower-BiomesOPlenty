@@ -9,8 +9,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -215,7 +215,7 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
 
     private void addCrusherRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
+        Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crusher/" +
                 getItemName(output.getItem()) + "_from_crushing_" + recipeIngredientName);
 
         CrusherRecipe recipe = new CrusherRecipe(output, input);
@@ -267,7 +267,7 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
     private void addSawmillRecipe(RecipeOutput recipeOutput, Ingredient input, ItemStack output,
                                          int sawdustAmount, String outputName, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
+        Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "sawmill/" +
                 outputName + "_from_sawing_" + recipeIngredientName);
 
         SawmillRecipe recipe = new SawmillRecipe(output, input, sawdustAmount);
@@ -293,7 +293,7 @@ public class ModRecipeGenerator extends RecipeProvider {
     private void addPlantGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input,
                                              OutputItemStackWithPercentages[] outputs, int ticks,
                                              String outputName, String recipeIngredientName) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
+        Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
         PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
@@ -306,7 +306,7 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, IngredientWithCount input, OutputItemStackWithPercentages output,
                                                       int ticks) {
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
+        Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "crystal_growing/" +
                 getItemName(output.output().getItem()));
 
         CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, ticks);
@@ -325,7 +325,7 @@ public class ModRecipeGenerator extends RecipeProvider {
         return Ingredient.of(registries.lookupOrThrow(Registries.ITEM).getOrThrow(tagKey));
     }
 
-    private static ResourceKey<Recipe<?>> getKey(ResourceLocation recipeId) {
+    private static ResourceKey<Recipe<?>> getKey(Identifier recipeId) {
         return ResourceKey.create(Registries.RECIPE, recipeId);
     }
 }
