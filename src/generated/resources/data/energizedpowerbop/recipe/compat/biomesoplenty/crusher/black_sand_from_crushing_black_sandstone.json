@@ -8,7 +8,6 @@
   "type": "energizedpower:crusher",
   "ingredient": "biomesoplenty:black_sandstone",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:black_sand"
   }
 }

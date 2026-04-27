@@ -8,7 +8,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:palm_door",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:palm_planks"
   },
   "sawdustAmount": 3

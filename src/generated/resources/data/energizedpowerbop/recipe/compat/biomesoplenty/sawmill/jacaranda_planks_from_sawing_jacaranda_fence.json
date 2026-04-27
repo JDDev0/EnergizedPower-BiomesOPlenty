@@ -8,7 +8,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:jacaranda_fence",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:jacaranda_planks"
   },
   "sawdustAmount": 2

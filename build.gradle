@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.181'
+    id 'net.neoforged.gradle.userdev' version '7.1.21'
     id "me.shedaniel.unified-publishing" version "0.1.+"
 }
 
@@ -43,7 +43,7 @@ base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 // Default run configurations.
 // These can be tweaked, removed, or duplicated as needed.
@@ -154,21 +154,21 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     // Energized Power dependency
-    compileOnly "curse.maven:energized-power-782147:7366646"
+    compileOnly "curse.maven:energized-power-782147:8000984"
 
-    localRuntime "curse.maven:energized-power-782147:7366646"
+    localRuntime "curse.maven:energized-power-782147:8000984"
 
     // Biomes O' Plenty integration
-    compileOnly "curse.maven:biomes-o-plenty-220318:7352930"
+    compileOnly "curse.maven:biomes-o-plenty-220318:7986475"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:7352930"
-    localRuntime "curse.maven:glitchcore-955399:7335721"
-    localRuntime "curse.maven:terrablender-neoforge-940057:7326873"
+    localRuntime "curse.maven:biomes-o-plenty-220318:7986475"
+    localRuntime "curse.maven:glitchcore-955399:7975606"
+    localRuntime "curse.maven:terrablender-neoforge-940057:7933871"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    localRuntime "mezz.jei:jei-1.21.11-neoforge:27.3.0.10"
+    localRuntime "mezz.jei:jei-26.1.2-neoforge:29.5.0.26"
     //localRuntime "me.shedaniel:RoughlyEnoughItems-neoforge:20.0.811"
     //localRuntime "dev.emi:emi-neoforge:1.1.18+1.21.1"
 }
@@ -207,6 +207,13 @@ jar {
     }
 }
 
+//Show more errors for porting
+afterEvaluate {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "2000"
+    }
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -230,11 +237,11 @@ tasks.publishUnified {
 
 unifiedPublishing {
     project {
-        displayName = "Energized Power - BOP - " + project.minecraft_version + " - v" + project.mod_version.split("-")[1] + " [NeoForge]"
+        displayName = "Energized Power - BOP - " + "26.1.x" + " - v" + project.mod_version.split("-")[1] + " [NeoForge]"
         version = project.mod_version
         changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
-        releaseType = "release"
-        gameVersions = [project.minecraft_version]
+        releaseType = "beta" //TODO change to "release" if NeoForge is no longer in beta
+        gameVersions = ["26.1", "26.1.1", "26.1.2"]
         gameLoaders = ["neoforge"]
 
         mainPublication.set(project.rootDir.toPath().resolve("build/libs").resolve(project.mod_id + "-" + project.version + ".jar").toFile())
