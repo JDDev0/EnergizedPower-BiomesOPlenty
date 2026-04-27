@@ -2,7 +2,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:hellbark_fence",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:hellbark_planks"
   },
   "sawdustAmount": 2

@@ -2,7 +2,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:empyreal_fence",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:empyreal_planks"
   },
   "sawdustAmount": 2

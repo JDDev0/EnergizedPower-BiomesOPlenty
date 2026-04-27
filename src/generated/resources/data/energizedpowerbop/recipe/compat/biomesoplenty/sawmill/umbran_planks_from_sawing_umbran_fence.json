@@ -2,7 +2,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:umbran_fence",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:umbran_planks"
   },
   "sawdustAmount": 2

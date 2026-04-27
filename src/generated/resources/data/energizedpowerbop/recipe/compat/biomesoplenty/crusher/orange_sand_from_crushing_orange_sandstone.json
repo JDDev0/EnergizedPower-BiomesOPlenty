@@ -2,7 +2,6 @@
   "type": "energizedpower:crusher",
   "ingredient": "biomesoplenty:orange_sandstone",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:orange_sand"
   }
 }

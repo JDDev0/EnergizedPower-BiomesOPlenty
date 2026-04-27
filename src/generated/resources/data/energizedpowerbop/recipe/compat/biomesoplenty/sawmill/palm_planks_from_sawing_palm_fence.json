@@ -2,7 +2,6 @@
   "type": "energizedpower:sawmill",
   "ingredient": "biomesoplenty:palm_fence",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:palm_planks"
   },
   "sawdustAmount": 2
