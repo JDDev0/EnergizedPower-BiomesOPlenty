@@ -33,7 +33,7 @@
 		"java": ">=25",
 		"fabric-api": "*",
 
-		"energizedpower": "*",
+		"energizedpower": ">=3.0.0-beta.2",
 
 		"biomesoplenty": "*"
 	},

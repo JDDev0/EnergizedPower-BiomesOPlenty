@@ -4,6 +4,8 @@ import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
 import me.jddev0.ep.recipe.*;
+import me.jddev0.ep.soil.EPSoilTypeTags;
+import me.jddev0.ep.soil.SoilType;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -11,10 +13,14 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 
 public class ModRecipeGenerator extends RecipeProvider {
     private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
@@ -195,13 +201,13 @@ public class ModRecipeGenerator extends RecipeProvider {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.PURPLE_WILDFLOWERS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "purple_wildflower", "purple_wildflower");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "purple_wildflower", "purple_wildflower");
 
         addPlantGrowthChamberRecipe(Ingredient.of(BOPItems.WHITE_PETALS), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "white_petals", "white_petals");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes() {
@@ -272,29 +278,37 @@ public class ModRecipeGenerator extends RecipeProvider {
         this.output.accept(getKey(recipeId), recipe, null);
     }
 
-    private void addBasicFlowerGrowingRecipe(ItemLike flowerItem,
-                                             String outputName) {
+    private void addBasicFlowerGrowingRecipe(ItemLike flowerItem, String outputName) {
         addPlantGrowthChamberRecipe(Ingredient.of(flowerItem), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(flowerItem.asItem()), new double[] {
                         1., 1., .33
                 })
-        }, 16000, outputName, getItemName(flowerItem));
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(flowerItem));
     }
     private void addBasicMushroomsGrowingRecipe(ItemLike mushroomItem,
                                                 String outputName) {
-        addPlantGrowthChamberRecipe(Ingredient.of(mushroomItem), new OutputItemStackTemplateWithPercentages[] {
+        addPlantGrowthChamberRecipe(ingredientOf(mushroomItem), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(mushroomItem.asItem()), new double[] {
                         1., 1., .5, .25
                 })
-        }, 16000, outputName, getItemName(mushroomItem));
+        }, EPSoilTypeTags.MUSHROOMS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(mushroomItem));
     }
     private void addPlantGrowthChamberRecipe(Ingredient input,
-                                             OutputItemStackTemplateWithPercentages[] outputs, int ticks,
+                                             OutputItemStackTemplateWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid fluid, double fluidConsumption, int ticks,
+                                             String outputName, String recipeIngredientName) {
+        addPlantGrowthChamberRecipe(input, outputs, soilType, new Fluid[] {fluid}, fluidConsumption, ticks, outputName, recipeIngredientName);
+    }
+    private void addPlantGrowthChamberRecipe(Ingredient input,
+                                             OutputItemStackTemplateWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid[] fluid, double fluidConsumption, int ticks,
                                              String outputName, String recipeIngredientName) {
         Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
-        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
+        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, soilType, fluid, fluidConsumption, ticks);
         this.output.accept(getKey(recipeId), recipe, null);
     }
 
@@ -309,6 +323,18 @@ public class ModRecipeGenerator extends RecipeProvider {
 
         CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, ticks);
         this.output.accept(getKey(recipeId), recipe, null);
+    }
+
+    private Ingredient ingredientOf(ItemLike item) {
+        return Ingredient.of(item);
+    }
+
+    private Ingredient ingredientOf(ItemLike... items) {
+        return Ingredient.of(items);
+    }
+
+    private Ingredient ingredientOf(TagKey<Item> tagKey) {
+        return Ingredient.of(registries.lookupOrThrow(Registries.ITEM).getOrThrow(tagKey));
     }
 
     private static ResourceKey<Recipe<?>> getKey(Identifier recipeId) {

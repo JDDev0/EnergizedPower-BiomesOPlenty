@@ -1,7 +1,7 @@
 plugins {
     id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT'
     id 'maven-publish'
-    id "me.shedaniel.unified-publishing" version "0.1.+"
+    id "me.modmuss50.mod-publish-plugin" version "2.0.0-beta.2"
 }
 
 version = project.mod_version
@@ -81,9 +81,9 @@ dependencies {
     }
 
     // Energized Power dependency
-    compileOnlyApi "curse.maven:energized-power-782147:8000981"
+    compileOnlyApi "curse.maven:energized-power-782147:8238849"
 
-    localRuntime "curse.maven:energized-power-782147:8000981"
+    localRuntime "curse.maven:energized-power-782147:8238849"
 
     // Biomes O' Plenty integration
     compileOnlyApi "curse.maven:biomes-o-plenty-220318:7986477"
@@ -156,63 +156,33 @@ publishing {
     }
 }
 
-tasks.register("distJar", Copy) {
-    group = "build"
+publishMods {
+    displayName = "Energized Power - BOP - " + "26.1.x" + " - v" + project.mod_version.split("\\+")[0] + " [Fabric]"
+    changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
+    type = BETA //TODO change to STABLE if v3.0.0 is no longer in beta
+    file = jar.archiveFile
+    modLoaders.add("fabric")
 
-    dependsOn(tasks.getByName("jar"))
+    dryRun = project.mod_version.contains("dev")
 
-    var jarFile = project.rootDir.toPath().resolve("build/libs").resolve(project.archives_base_name + "-" + project.version + ".jar").toFile()
-    from(jarFile)
-    doFirst {
-        file(project.rootDir.toPath().resolve("build/libs/dist")).mkdirs()
+    if(project.hasProperty('MODRINTH_TOKEN')) {
+        modrinth {
+            accessToken = getProperty('MODRINTH_TOKEN') as String
+            projectId = "pFrEfXHl"
+            minecraftVersionList("26.1, 26.1.1, 26.1.2")
+            requires("fabric-api", "energized-power", "biomes-o-plenty")
+        }
     }
-    into(project.rootDir.toPath().resolve("build/libs/dist"))
-}
 
-tasks.publishUnified {
-    dependsOn tasks.getByName("distJar")
-}
-
-unifiedPublishing {
-    project {
-        displayName = "Energized Power - BOP - " + "26.1.x" + " - v" + project.mod_version.split("-")[1] + " [Fabric]"
-        version = project.mod_version
-        changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
-        releaseType = "release"
-        gameVersions = ["26.1", "26.1.1", "26.1.2"]
-        gameLoaders = ["fabric"]
-
-        mainPublication.set(project.rootDir.toPath().resolve("build/libs").resolve(project.archives_base_name + "-" + project.version + ".jar").toFile())
-
-        relations {
-            depends {
-                modrinth = "fabric-api"
-                curseforge = "fabric-api"
-            }
-
-            depends {
-                modrinth = "energized-power"
-                curseforge = "energized-power"
-            }
-
-            depends {
-                modrinth = "biomes-o-plenty"
-                curseforge = "biomes-o-plenty"
-            }
-        }
-
-        if(project.hasProperty('MODRINTH_TOKEN')) {
-            modrinth {
-                token = getProperty('MODRINTH_TOKEN') as String
-                id = "pFrEfXHl"
-            }
-        }
-
-        if(project.hasProperty('CURSEFORGE_TOKEN')) {
-            curseforge {
-                token = getProperty('CURSEFORGE_TOKEN') as String
-                id = "1108229"
-            }
+    if(project.hasProperty('CURSEFORGE_TOKEN')) {
+        curseforge {
+            accessToken = getProperty('CURSEFORGE_TOKEN') as String
+            projectId = "1108229"
+            minecraftVersionList("26.1, 26.1.1, 26.1.2")
+            requires("fabric-api", "energized-power", "biomes-o-plenty")
+            client = true
+            server = true
+            javaVersions.add(JavaVersion.VERSION_21)
         }
     }
 }
