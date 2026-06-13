@@ -1,0 +1,20 @@
+{
+  "type": "energizedpower:plant_growth_chamber",
+  "fluid": "minecraft:water",
+  "fluidConsumption": 0.001,
+  "ingredient": "biomesoplenty:tiny_cactus",
+  "results": [
+    {
+      "percentages": [
+        1.0,
+        1.0,
+        0.33
+      ],
+      "result": {
+        "id": "biomesoplenty:tiny_cactus"
+      }
+    }
+  ],
+  "soilType": "#energizedpower:desert_crops",
+  "ticks": 4000
+}
