@@ -1,0 +1,22 @@
+{
+  "type": "energizedpower:plant_growth_chamber",
+  "fluid": "minecraft:lava",
+  "fluidConsumption": 0.001,
+  "ingredient": {
+    "item": "biomesoplenty:burning_blossom"
+  },
+  "outputs": [
+    {
+      "output": {
+        "item": "biomesoplenty:burning_blossom"
+      },
+      "percentages": [
+        1.0,
+        1.0,
+        0.33
+      ]
+    }
+  ],
+  "soilType": "#energizedpowerbop:nether_crops",
+  "ticks": 4000
+}

@@ -5,17 +5,22 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
 import me.jddev0.ep.soil.EPSoilTypeTags;
+import me.jddev0.ep.soil.EPSoilTypes;
 import me.jddev0.ep.soil.SoilType;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import me.jddev0.ep.recipe.*;
+import me.jddev0.epbop.soil.EPBOPSoilTypeTags;
+import me.jddev0.epbop.soil.EPBOPSoilTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
@@ -37,6 +42,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         buildCrusherRecipes(output);
         buildSawmillRecipes(output);
         buildPlantGrowthChamberRecipes(output);
+        buildPlantGrowthChamberSoilRecipes(output);
         buildCrystalGrowthChamberRecipes(output);
     }
 
@@ -188,6 +194,56 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         1., 1., 1., .67, .33, .33, .15
                 })
         }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "white_petals", "white_petals");
+
+        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.BARLEY), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.BARLEY), new double[] {
+                        1., .75, .25
+                })
+        }, EPSoilTypeTags.CROPS, Fluids.WATER, 0.0625, 4000, "barley", "barley");
+
+        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.WATERLILY), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.WATERLILY), new double[] {
+                        1., .75, .25, .25
+                })
+        }, EPSoilTypeTags.WATER_CROPS, Fluids.WATER, 0.125, 4000, "waterlilies", "waterlily");
+
+        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.TINY_CACTUS), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.TINY_CACTUS), new double[] {
+                        1., 1., .33
+                })
+        }, EPSoilTypeTags.DESERT_CROPS, Fluids.WATER, 0.001, 4000, "tiny_cactus", "tiny_cactus");
+
+        addNetherFlowerGrowingRecipe(output, BOPItems.BURNING_BLOSSOM, "burning_blossom");
+
+        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.BRAMBLE), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.BRAMBLE), new double[] {
+                        1., 1., .67, .67, .33, .17, .17
+                })
+        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, "bramble", "bramble");
+
+        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.LUMALOOP), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(BOPItems.LUMALOOP), new double[] {
+                        1., 1., .67, .67, .33, .17, .17
+                })
+        }, EPBOPSoilTypeTags.END_FLOWERS, Fluids.WATER, 0.00000001, 4000, "lumaloops", "lumaloop");
+    }
+
+    private void buildPlantGrowthChamberSoilRecipes(RecipeOutput output) {
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.WHITE_SAND, BOPItems.ORANGE_SAND, BOPItems.BLACK_SAND),
+                EPSoilTypes.SAND, 1.0, 1.0, 1.0, "sand");
+
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.ORIGIN_GRASS_BLOCK),
+                EPSoilTypes.GRASS, 1.1, 1.0, 1.0, "origin_grass");
+
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(Items.NETHERRACK),
+                EPBOPSoilTypes.NETHERRACK, 1.0, 1.0, 1.0, "netherrack");
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.FLESH),
+                EPBOPSoilTypes.NETHERRACK, 1.1, 0.5, 1.0, "flesh");
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(Items.CRIMSON_NYLIUM, Items.WARPED_NYLIUM),
+                EPBOPSoilTypes.NYLIUM, 1.25, 0.75, 1.0, "nylium");
+
+        addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.ALGAL_END_STONE),
+                EPBOPSoilTypes.ALGAL_END_STONE, 1.25, 0.75, 1.0, "algal_end_stone");
     }
 
     private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
@@ -262,6 +318,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 })
         }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(flowerItem));
     }
+
+    private void addNetherFlowerGrowingRecipe(RecipeOutput recipeExporter, ItemLike flowerItem, String outputName) {
+        addPlantGrowthChamberRecipe(recipeExporter, Ingredient.of(flowerItem), new OutputItemStackWithPercentages[] {
+                new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
+                        1., 1., .33
+                })
+        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, outputName, getItemName(flowerItem));
+    }
     private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeExporter, ItemLike mushroomItem,
                                                 String outputName) {
         addPlantGrowthChamberRecipe(recipeExporter, ingredientOf(mushroomItem), new OutputItemStackWithPercentages[] {
@@ -289,8 +353,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         recipeExporter.accept(recipeId, recipe, null);
     }
 
+    private void addPlantGrowthChamberSoilRecipe(RecipeOutput recipeOutput, Ingredient input,
+                                                 ResourceKey<SoilType> soilType,
+                                                 double speedMultiplier,
+                                                 double fluidConsumptionMultiplier, double energyConsumptionMultiplier,
+                                                 String recipeIngredientName) {
+        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/soil/" +
+                recipeIngredientName);
+
+        PlantGrowthChamberSoilRecipe recipe = new PlantGrowthChamberSoilRecipe(input, soilType,
+                speedMultiplier, fluidConsumptionMultiplier, energyConsumptionMultiplier);
+        recipeOutput.accept(recipeId, recipe, null);
+    }
+
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,
-                                                      int ticks) {
+                                               int ticks) {
         addCrystalGrowthChamberRecipe(recipeOutput, input, output, 1, ticks);
     }
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackWithPercentages output,

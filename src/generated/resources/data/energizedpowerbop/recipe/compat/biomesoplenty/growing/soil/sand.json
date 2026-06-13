@@ -1,0 +1,18 @@
+{
+  "type": "energizedpower:plant_growth_chamber_soil",
+  "energyConsumptionMultiplier": 1.0,
+  "fluidConsumptionMultiplier": 1.0,
+  "ingredient": [
+    {
+      "item": "biomesoplenty:white_sand"
+    },
+    {
+      "item": "biomesoplenty:orange_sand"
+    },
+    {
+      "item": "biomesoplenty:black_sand"
+    }
+  ],
+  "soilType": "energizedpower:sand",
+  "speedMultiplier": 1.0
+}
