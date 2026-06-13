@@ -4,6 +4,8 @@ import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
 import me.jddev0.ep.recipe.*;
+import me.jddev0.ep.soil.EPSoilTypeTags;
+import me.jddev0.ep.soil.SoilType;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +19,8 @@ import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.conditions.NeoForgeConditions;
 
 public class ModRecipeGenerator extends RecipeProvider {
@@ -174,37 +178,37 @@ public class ModRecipeGenerator extends RecipeProvider {
     }
 
     private void buildPlantGrowthChamberRecipes(RecipeOutput output) {
-        addBasicFlowerGrowingRecipe(output, BOPItems.MARIGOLD, "marigold");
-        addBasicFlowerGrowingRecipe(output, BOPItems.VIOLET, "violet");
-        addBasicFlowerGrowingRecipe(output, BOPItems.LAVENDER, "lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.WHITE_LAVENDER, "white_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.ORANGE_COSMOS, "orange_cosmos");
-        addBasicFlowerGrowingRecipe(output, BOPItems.PINK_DAFFODIL, "pink_daffodil");
-        addBasicFlowerGrowingRecipe(output, BOPItems.PINK_HIBISCUS, "pink_hibiscus");
+        addBasicFlowerGrowingRecipe(BOPItems.MARIGOLD, "marigold");
+        addBasicFlowerGrowingRecipe(BOPItems.VIOLET, "violet");
+        addBasicFlowerGrowingRecipe(BOPItems.LAVENDER, "lavender");
+        addBasicFlowerGrowingRecipe(BOPItems.WHITE_LAVENDER, "white_lavender");
+        addBasicFlowerGrowingRecipe(BOPItems.ORANGE_COSMOS, "orange_cosmos");
+        addBasicFlowerGrowingRecipe(BOPItems.PINK_DAFFODIL, "pink_daffodil");
+        addBasicFlowerGrowingRecipe(BOPItems.PINK_HIBISCUS, "pink_hibiscus");
 
-        addBasicFlowerGrowingRecipe(output, BOPItems.ORIGIN_ROSE, "origin_rose");
+        addBasicFlowerGrowingRecipe(BOPItems.ORIGIN_ROSE, "origin_rose");
 
-        addBasicFlowerGrowingRecipe(output, BOPItems.TALL_LAVENDER, "tall_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");
-        addBasicFlowerGrowingRecipe(output, BOPItems.BLUE_HYDRANGEA, "blue_hydrangea");
-        addBasicFlowerGrowingRecipe(output, BOPItems.GOLDENROD, "goldenrod");
-        addBasicFlowerGrowingRecipe(output, BOPItems.ICY_IRIS, "icy_iris");
-        addBasicFlowerGrowingRecipe(output, BOPItems.GLOWFLOWER, "glowflower");
-        addBasicFlowerGrowingRecipe(output, BOPItems.WILTED_LILY, "wilted_liliy");
+        addBasicFlowerGrowingRecipe(BOPItems.TALL_LAVENDER, "tall_lavender");
+        addBasicFlowerGrowingRecipe(BOPItems.TALL_WHITE_LAVENDER, "tall_white_lavender");
+        addBasicFlowerGrowingRecipe(BOPItems.BLUE_HYDRANGEA, "blue_hydrangea");
+        addBasicFlowerGrowingRecipe(BOPItems.GOLDENROD, "goldenrod");
+        addBasicFlowerGrowingRecipe(BOPItems.ICY_IRIS, "icy_iris");
+        addBasicFlowerGrowingRecipe(BOPItems.GLOWFLOWER, "glowflower");
+        addBasicFlowerGrowingRecipe(BOPItems.WILTED_LILY, "wilted_liliy");
 
-        addBasicMushroomsGrowingRecipe(output, BOPItems.TOADSTOOL, "toadstool");
+        addBasicMushroomsGrowingRecipe(BOPItems.TOADSTOOL, "toadstool");
 
-        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.PURPLE_WILDFLOWERS), new OutputItemStackTemplateWithPercentages[] {
+        addPlantGrowthChamberRecipe(ingredientOf(BOPItems.PURPLE_WILDFLOWERS), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.PURPLE_WILDFLOWERS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "purple_wildflower", "purple_wildflower");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "purple_wildflower", "purple_wildflower");
 
-        addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.WHITE_PETALS), new OutputItemStackTemplateWithPercentages[] {
+        addPlantGrowthChamberRecipe(ingredientOf(BOPItems.WHITE_PETALS), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "white_petals", "white_petals");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
@@ -274,30 +278,38 @@ public class ModRecipeGenerator extends RecipeProvider {
         recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
     }
 
-    private void addBasicFlowerGrowingRecipe(RecipeOutput recipeOutput, ItemLike flowerItem,
-                                                    String outputName) {
-        addPlantGrowthChamberRecipe(recipeOutput, ingredientOf(flowerItem), new OutputItemStackTemplateWithPercentages[] {
+    private void addBasicFlowerGrowingRecipe(ItemLike flowerItem, String outputName) {
+        addPlantGrowthChamberRecipe(Ingredient.of(flowerItem), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(flowerItem.asItem()), new double[] {
                         1., 1., .33
                 })
-        }, 16000, outputName, getItemName(flowerItem));
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(flowerItem));
     }
-    private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeOutput, ItemLike mushroomItem,
-                                                       String outputName) {
-        addPlantGrowthChamberRecipe(recipeOutput, ingredientOf(mushroomItem), new OutputItemStackTemplateWithPercentages[] {
+    private void addBasicMushroomsGrowingRecipe(ItemLike mushroomItem,
+                                                String outputName) {
+        addPlantGrowthChamberRecipe(ingredientOf(mushroomItem), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(mushroomItem.asItem()), new double[] {
                         1., 1., .5, .25
                 })
-        }, 16000, outputName, getItemName(mushroomItem));
+        }, EPSoilTypeTags.MUSHROOMS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(mushroomItem));
     }
-    private void addPlantGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input,
-                                             OutputItemStackTemplateWithPercentages[] outputs, int ticks,
+    private void addPlantGrowthChamberRecipe(Ingredient input,
+                                             OutputItemStackTemplateWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid fluid, double fluidConsumption, int ticks,
+                                             String outputName, String recipeIngredientName) {
+        addPlantGrowthChamberRecipe(input, outputs, soilType, new Fluid[] {fluid}, fluidConsumption, ticks, outputName, recipeIngredientName);
+    }
+    private void addPlantGrowthChamberRecipe(Ingredient input,
+                                             OutputItemStackTemplateWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid[] fluid, double fluidConsumption, int ticks,
                                              String outputName, String recipeIngredientName) {
         Identifier recipeId = Identifier.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
-        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
-        recipeOutput.accept(getKey(recipeId), recipe, null, NeoForgeConditions.modLoaded(BIOMES_O_PLENTY_MOD_ID));
+        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, soilType, fluid, fluidConsumption, ticks);
+        this.output.accept(getKey(recipeId), recipe, null);
     }
 
     private void addCrystalGrowthChamberRecipe(RecipeOutput recipeOutput, Ingredient input, OutputItemStackTemplateWithPercentages output,
