@@ -17,8 +17,12 @@ public class EnergizedPowerBOPDataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
 
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        CompletableFuture<HolderLookup.Provider> lookupProvider =
+                generator.addProvider(true, new ModRegistriesProvider(output, event.getLookupProvider())).
+                        getRegistryProvider();
 
         generator.addProvider(true, new ModRecipeProvider(output, lookupProvider));
+
+        generator.addProvider(true, new ModSoilTypeTagProvider(output, lookupProvider));
     }
 }
