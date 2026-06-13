@@ -1,0 +1,26 @@
+{
+  "type": "energizedpower:plant_growth_chamber",
+  "fluid": "minecraft:water",
+  "fluidConsumption": 1.0E-8,
+  "ingredient": {
+    "item": "biomesoplenty:lumaloop"
+  },
+  "outputs": [
+    {
+      "output": {
+        "item": "biomesoplenty:lumaloop"
+      },
+      "percentages": [
+        1.0,
+        1.0,
+        0.67,
+        0.67,
+        0.33,
+        0.17,
+        0.17
+      ]
+    }
+  ],
+  "soilType": "#energizedpowerbop:end_flowers",
+  "ticks": 4000
+}
