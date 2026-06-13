@@ -4,15 +4,22 @@ import biomesoplenty.api.BOPAPI;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
 import me.jddev0.ep.recipe.*;
+import me.jddev0.ep.soil.EPSoilTypeTags;
+import me.jddev0.ep.soil.SoilType;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -172,13 +179,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.WILDFLOWER), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "wildflower", "wildflower");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "wildflower", "wildflower");
 
         addPlantGrowthChamberRecipe(output, Ingredient.of(BOPItems.WHITE_PETALS), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.WHITE_PETALS), new double[] {
                         1., 1., 1., .67, .33, .33, .15
                 })
-        }, 16000, "white_petals", "white_petals");
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000,  "white_petals", "white_petals");
     }
 
     private void buildCrystalGrowthChamberRecipes(RecipeOutput output) {
@@ -247,30 +254,38 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         RecipeExporter.accept(recipeId, recipe, null);
     }
 
-    private void addBasicFlowerGrowingRecipe(RecipeOutput RecipeExporter, ItemLike flowerItem,
-                                             String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.of(flowerItem), new OutputItemStackWithPercentages[] {
+    private void addBasicFlowerGrowingRecipe(RecipeOutput recipeExporter, ItemLike flowerItem, String outputName) {
+        addPlantGrowthChamberRecipe(recipeExporter, Ingredient.of(flowerItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
                         1., 1., .33
                 })
-        }, 16000, outputName, getItemName(flowerItem));
+        }, EPSoilTypeTags.FLOWERS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(flowerItem));
     }
-    private void addBasicMushroomsGrowingRecipe(RecipeOutput RecipeExporter, ItemLike mushroomItem,
+    private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeExporter, ItemLike mushroomItem,
                                                 String outputName) {
-        addPlantGrowthChamberRecipe(RecipeExporter, Ingredient.of(mushroomItem), new OutputItemStackWithPercentages[] {
+        addPlantGrowthChamberRecipe(recipeExporter, ingredientOf(mushroomItem), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(mushroomItem), new double[] {
                         1., 1., .5, .25
                 })
-        }, 16000, outputName, getItemName(mushroomItem));
+        }, EPSoilTypeTags.MUSHROOMS, Fluids.WATER, 0.0625, 4000, outputName, getItemName(mushroomItem));
     }
-    private void addPlantGrowthChamberRecipe(RecipeOutput RecipeExporter, Ingredient input,
-                                             OutputItemStackWithPercentages[] outputs, int ticks,
+    private void addPlantGrowthChamberRecipe(RecipeOutput recipeExporter, Ingredient input,
+                                             OutputItemStackWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid fluid, double fluidConsumption, int ticks,
+                                             String outputName, String recipeIngredientName) {
+        addPlantGrowthChamberRecipe(recipeExporter, input, outputs, soilType, new Fluid[] {fluid}, fluidConsumption, ticks, outputName, recipeIngredientName);
+    }
+    private void addPlantGrowthChamberRecipe(RecipeOutput recipeExporter, Ingredient input,
+                                             OutputItemStackWithPercentages[] outputs,
+                                             TagKey<SoilType> soilType,
+                                             Fluid[] fluid, double fluidConsumption, int ticks,
                                              String outputName, String recipeIngredientName) {
         ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, PATH_PREFIX + "growing/" +
                 outputName + "_from_growing_" + recipeIngredientName);
 
-        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, ticks);
-        RecipeExporter.accept(recipeId, recipe, null);
+        PlantGrowthChamberRecipe recipe = new PlantGrowthChamberRecipe(outputs, input, soilType, fluid, fluidConsumption, ticks);
+        recipeExporter.accept(recipeId, recipe, null);
     }
 
     private void addCrystalGrowthChamberRecipe(RecipeOutput RecipeExporter, Ingredient input, OutputItemStackWithPercentages output,
@@ -284,5 +299,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         CrystalGrowthChamberRecipe recipe = new CrystalGrowthChamberRecipe(output, input, inputCount, ticks);
         recipeExporter.accept(recipeId, recipe, null);
+    }
+
+    private Ingredient ingredientOf(ItemLike item) {
+        return Ingredient.of(item);
+    }
+
+    private Ingredient ingredientOf(ItemLike... items) {
+        return Ingredient.of(items);
+    }
+
+    private Ingredient ingredientOf(TagKey<Item> tagKey) {
+        return Ingredient.of(tagKey);
     }
 }
