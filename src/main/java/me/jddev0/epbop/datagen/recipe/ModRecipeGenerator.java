@@ -239,7 +239,7 @@ public class ModRecipeGenerator extends RecipeProvider {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.BRAMBLE), new double[] {
                         1., 1., .67, .67, .33, .17, .17
                 })
-        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, "bramble", "bramble");
+        }, EPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, "bramble", "bramble");
 
         addPlantGrowthChamberRecipe(ingredientOf(BOPItems.LUMALOOP), new OutputItemStackTemplateWithPercentages[] {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(BOPItems.LUMALOOP), new double[] {
@@ -255,12 +255,8 @@ public class ModRecipeGenerator extends RecipeProvider {
         addPlantGrowthChamberSoilRecipe(ingredientOf(BOPItems.ORIGIN_GRASS_BLOCK),
                 EPSoilTypes.GRASS, 1.1, 1.0, 1.0, "origin_grass");
 
-        addPlantGrowthChamberSoilRecipe(ingredientOf(Items.NETHERRACK),
-                EPBOPSoilTypes.NETHERRACK, 1.0, 1.0, 1.0, "netherrack");
         addPlantGrowthChamberSoilRecipe(ingredientOf(BOPItems.FLESH),
-                EPBOPSoilTypes.NETHERRACK, 1.1, 0.5, 1.0, "flesh");
-        addPlantGrowthChamberSoilRecipe(ingredientOf(Items.CRIMSON_NYLIUM, Items.WARPED_NYLIUM),
-                EPBOPSoilTypes.NYLIUM, 1.25, 0.75, 1.0, "nylium");
+                EPSoilTypes.NETHERRACK, 1.1, 0.5, 1.0, "flesh");
 
         addPlantGrowthChamberSoilRecipe(ingredientOf(BOPItems.ALGAL_END_STONE),
                 EPBOPSoilTypes.ALGAL_END_STONE, 1.25, 0.75, 1.0, "algal_end_stone");
@@ -338,7 +334,7 @@ public class ModRecipeGenerator extends RecipeProvider {
                 new OutputItemStackTemplateWithPercentages(new ItemStackTemplate(flowerItem.asItem()), new double[] {
                         1., 1., .33
                 })
-        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, outputName, getItemName(flowerItem));
+        }, EPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, outputName, getItemName(flowerItem));
     }
     private void addBasicFlowerGrowingRecipe(ItemLike flowerItem, String outputName) {
         addPlantGrowthChamberRecipe(Ingredient.of(flowerItem), new OutputItemStackTemplateWithPercentages[] {

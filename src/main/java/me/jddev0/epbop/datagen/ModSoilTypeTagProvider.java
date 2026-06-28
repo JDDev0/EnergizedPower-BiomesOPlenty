@@ -19,10 +19,6 @@ public class ModSoilTypeTagProvider extends KeyTagProvider<SoilType> {
 
     @Override
     protected void addTags(HolderLookup.Provider lookupProvider) {
-        tag(EPBOPSoilTypeTags.NETHER_FLOWERS).
-                add(EPBOPSoilTypes.NETHERRACK).
-                add(EPBOPSoilTypes.NYLIUM);
-
         tag(EPBOPSoilTypeTags.END_FLOWERS).
                 add(EPSoilTypes.END_STONE).
                 add(EPBOPSoilTypes.ALGAL_END_STONE);

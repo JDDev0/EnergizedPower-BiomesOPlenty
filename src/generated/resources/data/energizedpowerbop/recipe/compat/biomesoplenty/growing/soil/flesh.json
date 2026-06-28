@@ -3,6 +3,6 @@
   "energyConsumptionMultiplier": 1.0,
   "fluidConsumptionMultiplier": 0.5,
   "ingredient": "biomesoplenty:flesh",
-  "soilType": "energizedpowerbop:netherrack",
+  "soilType": "energizedpower:netherrack",
   "speedMultiplier": 1.1
 }
