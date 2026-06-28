@@ -18,10 +18,6 @@ public class ModSoilTypeTagProvider extends FabricTagsProvider<SoilType> {
 
     @Override
     protected void addTags(HolderLookup.Provider lookupProvider) {
-        builder(EPBOPSoilTypeTags.NETHER_FLOWERS).
-                add(EPBOPSoilTypes.NETHERRACK).
-                add(EPBOPSoilTypes.NYLIUM);
-
         builder(EPBOPSoilTypeTags.END_FLOWERS).
                 add(EPSoilTypes.END_STONE).
                 add(EPBOPSoilTypes.ALGAL_END_STONE);

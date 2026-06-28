@@ -15,6 +15,6 @@
       }
     }
   ],
-  "soilType": "#energizedpowerbop:nether_crops",
+  "soilType": "#energizedpower:nether_flowers",
   "ticks": 4000
 }

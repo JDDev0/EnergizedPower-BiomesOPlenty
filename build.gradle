@@ -81,9 +81,9 @@ dependencies {
     }
 
     // Energized Power dependency
-    compileOnlyApi "curse.maven:energized-power-782147:8238849"
+    compileOnlyApi "curse.maven:energized-power-782147:8335118"
 
-    localRuntime "curse.maven:energized-power-782147:8238849"
+    localRuntime "curse.maven:energized-power-782147:8335118"
 
     // Biomes O' Plenty integration
     compileOnlyApi "curse.maven:biomes-o-plenty-220318:7986477"
