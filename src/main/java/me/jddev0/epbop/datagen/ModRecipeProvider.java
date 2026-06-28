@@ -219,7 +219,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.BRAMBLE), new double[] {
                         1., 1., .67, .67, .33, .17, .17
                 })
-        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, "bramble", "bramble");
+        }, EPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, "bramble", "bramble");
 
         addPlantGrowthChamberRecipe(output, ingredientOf(BOPItems.LUMALOOP), new OutputItemStackWithPercentages[] {
                 new OutputItemStackWithPercentages(new ItemStack(BOPItems.LUMALOOP), new double[] {
@@ -235,12 +235,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.ORIGIN_GRASS_BLOCK),
                 EPSoilTypes.GRASS, 1.1, 1.0, 1.0, "origin_grass");
 
-        addPlantGrowthChamberSoilRecipe(output, ingredientOf(Items.NETHERRACK),
-                EPBOPSoilTypes.NETHERRACK, 1.0, 1.0, 1.0, "netherrack");
         addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.FLESH),
-                EPBOPSoilTypes.NETHERRACK, 1.1, 0.5, 1.0, "flesh");
-        addPlantGrowthChamberSoilRecipe(output, ingredientOf(Items.CRIMSON_NYLIUM, Items.WARPED_NYLIUM),
-                EPBOPSoilTypes.NYLIUM, 1.25, 0.75, 1.0, "nylium");
+                EPSoilTypes.NETHERRACK, 1.1, 0.5, 1.0, "flesh");
 
         addPlantGrowthChamberSoilRecipe(output, ingredientOf(BOPItems.ALGAL_END_STONE),
                 EPBOPSoilTypes.ALGAL_END_STONE, 1.25, 0.75, 1.0, "algal_end_stone");
@@ -324,7 +320,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 new OutputItemStackWithPercentages(new ItemStack(flowerItem), new double[] {
                         1., 1., .33
                 })
-        }, EPBOPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, outputName, getItemName(flowerItem));
+        }, EPSoilTypeTags.NETHER_FLOWERS, Fluids.LAVA, 0.001, 4000, outputName, getItemName(flowerItem));
     }
     private void addBasicMushroomsGrowingRecipe(RecipeOutput recipeExporter, ItemLike mushroomItem,
                                                 String outputName) {
