@@ -9,8 +9,6 @@ import net.minecraft.tags.TagKey;
 public class EPBOPSoilTypeTags {
     private EPBOPSoilTypeTags() {}
 
-    public static final TagKey<SoilType> NETHER_FLOWERS = TagKey.create(EPRegistries.SOIL_TYPE,
-            ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, "nether_crops"));
     public static final TagKey<SoilType> END_FLOWERS = TagKey.create(EPRegistries.SOIL_TYPE,
             ResourceLocation.fromNamespaceAndPath(EnergizedPowerBOPMod.MODID, "end_flowers"));
 }

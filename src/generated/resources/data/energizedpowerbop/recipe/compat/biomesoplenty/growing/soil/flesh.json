@@ -5,6 +5,6 @@
   "ingredient": {
     "item": "biomesoplenty:flesh"
   },
-  "soilType": "energizedpowerbop:netherrack",
+  "soilType": "energizedpower:netherrack",
   "speedMultiplier": 1.1
 }
