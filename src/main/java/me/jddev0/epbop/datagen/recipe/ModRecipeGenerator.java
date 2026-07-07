@@ -63,9 +63,13 @@ public class ModRecipeGenerator extends RecipeProvider {
                         BOPItems.CHISELED_BLACK_SANDSTONE), new ItemStackTemplate(BOPItems.BLACK_SAND),
                 "black_sandstone_variants");
 
-        addCrusherRecipe(ingredientOf(BOPItems.BRIMSTONE_BRICKS, BOPItems.CHISELED_BRIMSTONE_BRICKS),
-                new ItemStackTemplate(BOPItems.BRIMSTONE),
-                "brimstone_variants");
+        addCrusherRecipe(Ingredient.of(BOPItems.ORPIMENT_BRICKS, BOPItems.POLISHED_ORPIMENT, BOPItems.CHISELED_ORPIMENT),
+                new ItemStackTemplate(BOPItems.ORPIMENT),
+                "orpiment_variants");
+
+        addCrusherRecipe(Ingredient.of(BOPItems.SPHALERITE_BRICKS, BOPItems.POLISHED_SPHALERITE, BOPItems.CHISELED_SPHALERITE),
+                new ItemStackTemplate(BOPItems.SPHALERITE),
+                "sphalerite_variants");
     }
 
     private void buildSawmillRecipes() {

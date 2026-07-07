@@ -7,10 +7,11 @@
   ],
   "type": "energizedpower:crusher",
   "ingredient": [
-    "biomesoplenty:brimstone_bricks",
-    "biomesoplenty:chiseled_brimstone_bricks"
+    "biomesoplenty:orpiment_bricks",
+    "biomesoplenty:polished_orpiment",
+    "biomesoplenty:chiseled_orpiment"
   ],
   "result": {
-    "id": "biomesoplenty:brimstone"
+    "id": "biomesoplenty:orpiment"
   }
 }

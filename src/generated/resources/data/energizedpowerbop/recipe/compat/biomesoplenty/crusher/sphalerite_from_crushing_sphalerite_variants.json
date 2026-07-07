@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "energizedpower:crusher",
+  "ingredient": [
+    "biomesoplenty:sphalerite_bricks",
+    "biomesoplenty:polished_sphalerite",
+    "biomesoplenty:chiseled_sphalerite"
+  ],
+  "result": {
+    "id": "biomesoplenty:sphalerite"
+  }
+}
