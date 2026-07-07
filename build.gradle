@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
     id 'maven-publish'
     id "me.modmuss50.mod-publish-plugin" version "2.0.0-beta.2"
 }
@@ -81,24 +81,24 @@ dependencies {
     }
 
     // Energized Power dependency
-    compileOnlyApi "curse.maven:energized-power-782147:8335118"
+    compileOnlyApi "curse.maven:energized-power-782147:8335132"
 
-    localRuntime "curse.maven:energized-power-782147:8335118"
+    localRuntime "curse.maven:energized-power-782147:8335132"
 
     // Biomes O' Plenty integration
-    compileOnlyApi "curse.maven:biomes-o-plenty-220318:7986477"
+    compileOnlyApi "curse.maven:biomes-o-plenty-220318:8384502"
 
-    localRuntime "curse.maven:biomes-o-plenty-220318:7986477"
+    localRuntime "curse.maven:biomes-o-plenty-220318:8384502"
     localRuntime "net.jodah:typetools:0.6.3"
     localRuntime "com.electronwill.night-config:core:3.6.7"
     localRuntime "com.electronwill.night-config:toml:3.6.7"
-    localRuntime "curse.maven:glitchcore-955399:7975608"
-    localRuntime "curse.maven:terrablender-fabric-565956:7933873"
+    localRuntime "curse.maven:glitchcore-955399:8332872"
+    localRuntime "curse.maven:terrablender-fabric-565956:8384514"
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    localRuntime "mezz.jei:jei-26.1-fabric:29.2.0.20"
+    localRuntime "mezz.jei:jei-26.2-fabric:30.0.0.5"
     //localRuntime "me.shedaniel:RoughlyEnoughItems-fabric:20.0.811"
     //localRuntime "dev.emi:emi-fabric:1.1.13+1.21.1"
 }
@@ -157,7 +157,7 @@ publishing {
 }
 
 publishMods {
-    displayName = "Energized Power - BOP - " + "26.1.x" + " - v" + project.mod_version.split("\\+")[0] + " [Fabric]"
+    displayName = "Energized Power - BOP - " + "26.2.x" + " - v" + project.mod_version.split("\\+")[0] + " [Fabric]"
     changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
     type = BETA //TODO change to STABLE if v3.0.0 is no longer in beta
     file = jar.archiveFile
@@ -169,7 +169,7 @@ publishMods {
         modrinth {
             accessToken = getProperty('MODRINTH_TOKEN') as String
             projectId = "pFrEfXHl"
-            minecraftVersionList("26.1, 26.1.1, 26.1.2")
+            minecraftVersionList("26.2")
             requires("fabric-api", "energized-power", "biomes-o-plenty")
         }
     }
@@ -178,7 +178,7 @@ publishMods {
         curseforge {
             accessToken = getProperty('CURSEFORGE_TOKEN') as String
             projectId = "1108229"
-            minecraftVersionList("26.1, 26.1.1, 26.1.2")
+            minecraftVersionList("26.2")
             requires("fabric-api", "energized-power", "biomes-o-plenty")
             client = true
             server = true
