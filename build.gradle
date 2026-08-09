@@ -227,7 +227,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 publishMods {
-    displayName = "Energized Power - BOP - " + "26.1.x" + " - v" + project.mod_version.split("\\+")[0] + " [NeoForge]"
+    displayName = "Energized Power - BOP - " + "26.2.x" + " - v" + project.mod_version.split("\\+")[0] + " [NeoForge]"
     changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
     type = STABLE
     file = jar.archiveFile
