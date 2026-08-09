@@ -25,7 +25,8 @@ displayName="${mod_name}" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://github.com/JDDev0/EnergizedPower-BiomesOPlenty" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="logo.png" #optional
+iconFile="logo.png" #optional
+bannerFile="logo.png" #optional
 # A text field displayed in the mod UI
 #credits="" #optional
 # A text field displayed in the mod UI
@@ -67,7 +68,7 @@ description='''${mod_description}'''
     modId="energizedpower"
     type="required"
     # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[3.0.0-beta.6,)"
+    versionRange="[3.0.0,)"
     ordering="NONE"
     side="BOTH"
 
