@@ -182,7 +182,7 @@ publishMods {
             requires("fabric-api", "energized-power", "biomes-o-plenty")
             client = true
             server = true
-            javaVersions.add(JavaVersion.VERSION_21)
+            javaVersions.add(JavaVersion.VERSION_25)
         }
     }
 }
