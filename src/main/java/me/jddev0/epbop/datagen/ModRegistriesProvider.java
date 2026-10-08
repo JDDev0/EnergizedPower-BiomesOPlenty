@@ -14,12 +14,14 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-public class ModRegistriesProvider extends DatapackBuiltinEntriesProvider {
+public final class ModRegistriesProvider {
+    private ModRegistriesProvider() {}
+
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().
             add(EPRegistries.SOIL_TYPE, ModRegistriesProvider::bootstrapSoilTypesFix);
 
-    public ModRegistriesProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, BUILDER, Set.of(EnergizedPowerBOPMod.MODID));
+    public static DatapackBuiltinEntriesProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        return DatapackBuiltinEntriesProvider.forWorldLayer(output, "Energized Power - BOP", registries, BUILDER, Set.of(EnergizedPowerBOPMod.MODID));
     }
 
     private static void bootstrapSoilTypesFix(BootstrapContext<SoilType> context) {
