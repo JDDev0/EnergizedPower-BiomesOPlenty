@@ -10,16 +10,16 @@ import me.jddev0.ep.soil.SoilType;
 import me.jddev0.epbop.EnergizedPowerBOPMod;
 import me.jddev0.epbop.soil.EPBOPSoilTypeTags;
 import me.jddev0.epbop.soil.EPBOPSoilTypes;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
@@ -27,11 +27,15 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
 public class ModRecipeGenerator extends RecipeProvider {
+    private final HolderLookup.Provider registries;
+
     private static final String BIOMES_O_PLENTY_MOD_ID = BOPAPI.MOD_ID;
     private static final String PATH_PREFIX = "compat/" + BIOMES_O_PLENTY_MOD_ID + "/";
 
-    public ModRecipeGenerator(HolderLookup.Provider registries, RecipeOutput exporter) {
-        super(registries, exporter);
+    public ModRecipeGenerator(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+        this.registries = registries;
+
+        super(recipes, advancements);
     }
 
     @Override
