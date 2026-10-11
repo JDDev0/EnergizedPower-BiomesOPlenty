@@ -157,7 +157,7 @@ dependencies {
     compileOnly "curse.maven:biomes-o-plenty-220318:9038749"
 
     localRuntime "curse.maven:biomes-o-plenty-220318:9038749"
-    localRuntime "curse.maven:glitchcore-955399:8938271"
+    localRuntime "curse.maven:glitchcore-955399:9125343"
     localRuntime "curse.maven:terrablender-neoforge-940057:9033892"
 
     // For more info...
@@ -229,7 +229,7 @@ tasks.withType(JavaCompile).configureEach {
 publishMods {
     displayName = "Energized Power - BOP - " + "26.3.x" + " - v" + project.mod_version.split("\\+")[0] + " [NeoForge]"
     changelog = new File("CHANGELOG.md").exists()?new File("CHANGELOG.md").getText("UTF-8"):""
-    type = BETA //TODO change to "stable" if NeoForge is no longer in beta
+    type = STABLE
     file = jar.archiveFile
     modLoaders.add("neoforge")
 
